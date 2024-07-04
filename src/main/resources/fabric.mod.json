@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "tbs4content",
+	"version": "${version}",
+	"name": "TBS4Content",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/tbs4content/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"me.jameskoehler.TBS4Content"
+		],
+		"client": [
+			"me.jameskoehler.TBS4ContentClient"
+		],
+		"fabric-datagen": [
+			"me.jameskoehler.TBS4ContentDataGenerator"
+		]
+	},
+	"mixins": [
+		"tbs4content.mixins.json",
+		{
+			"config": "tbs4content.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

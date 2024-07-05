@@ -43,13 +43,45 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 					.criterion(FabricRecipeProvider.hasItem(Items.ENDER_EYE), FabricRecipeProvider.conditionsFromItem(Items.ENDER_EYE))
 					.offerTo(exporter);
 
-			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.IRON_BLOCK).input(COMPRESSED_IRON)
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.IRON_BLOCK, 9).input(COMPRESSED_IRON)
 					.criterion(FabricRecipeProvider.hasItem(Items.IRON_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.IRON_BLOCK))
 					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_IRON), FabricRecipeProvider.conditionsFromItem(COMPRESSED_IRON))
 					.offerTo(exporter);
-			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.GOLD_BLOCK).input(COMPRESSED_GOLD)
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.GOLD_BLOCK, 9).input(COMPRESSED_GOLD)
 					.criterion(FabricRecipeProvider.hasItem(Items.GOLD_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.GOLD_BLOCK))
 					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_GOLD), FabricRecipeProvider.conditionsFromItem(COMPRESSED_GOLD))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.COPPER_BLOCK, 9).input(COMPRESSED_COPPER)
+					.criterion(FabricRecipeProvider.hasItem(Items.COPPER_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.COPPER_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_GOLD), FabricRecipeProvider.conditionsFromItem(COMPRESSED_GOLD))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.NETHERITE_BLOCK, 9).input(COMPRESSED_NETHERITE)
+					.criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_NETHERITE), FabricRecipeProvider.conditionsFromItem(COMPRESSED_NETHERITE))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.DIAMOND_BLOCK, 9).input(COMPRESSED_DIAMOND)
+					.criterion(FabricRecipeProvider.hasItem(Items.DIAMOND_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.DIAMOND_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_DIAMOND), FabricRecipeProvider.conditionsFromItem(COMPRESSED_DIAMOND))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.EMERALD_BLOCK, 9).input(COMPRESSED_EMERALD)
+					.criterion(FabricRecipeProvider.hasItem(Items.EMERALD_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.EMERALD_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_EMERALD), FabricRecipeProvider.conditionsFromItem(COMPRESSED_EMERALD))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.AMETHYST_BLOCK, 9).input(COMPRESSED_AMETHYST)
+					.criterion(FabricRecipeProvider.hasItem(Items.AMETHYST_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.AMETHYST_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_AMETHYST), FabricRecipeProvider.conditionsFromItem(COMPRESSED_AMETHYST))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, Items.QUARTZ, 9).input(COMPRESSED_QUARTZ)
+					.criterion(FabricRecipeProvider.hasItem(Items.QUARTZ), FabricRecipeProvider.conditionsFromItem(Items.QUARTZ))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_QUARTZ), FabricRecipeProvider.conditionsFromItem(COMPRESSED_QUARTZ))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.REDSTONE_BLOCK, 9).input(COMPRESSED_REDSTONE)
+					.criterion(FabricRecipeProvider.hasItem(Items.REDSTONE_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.REDSTONE_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_REDSTONE), FabricRecipeProvider.conditionsFromItem(COMPRESSED_REDSTONE))
+					.offerTo(exporter);
+			ShapelessRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, Items.SLIME_BLOCK, 9).input(COMPRESSED_SLIME)
+					.criterion(FabricRecipeProvider.hasItem(Items.SLIME_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.SLIME_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_SLIME), FabricRecipeProvider.conditionsFromItem(COMPRESSED_SLIME))
 					.offerTo(exporter);
 
 			ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COMPRESSED_IRON).pattern("iii").pattern("iii").pattern("iii").input('i', Items.IRON_BLOCK)
@@ -80,9 +112,9 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_AMETHYST), FabricRecipeProvider.conditionsFromItem(COMPRESSED_AMETHYST))
 					.criterion(FabricRecipeProvider.hasItem(Items.AMETHYST_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.AMETHYST_BLOCK))
 					.offerTo(exporter);
-			ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COMPRESSED_QUARTZ).pattern("iii").pattern("iii").pattern("iii").input('i', Items.QUARTZ_BLOCK)
+			ShapedRecipeJsonBuilder.create(RecipeCategory.BUILDING_BLOCKS, COMPRESSED_QUARTZ).pattern("iii").pattern("iii").pattern("iii").input('i', Items.QUARTZ)
 					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_QUARTZ), FabricRecipeProvider.conditionsFromItem(COMPRESSED_QUARTZ))
-					.criterion(FabricRecipeProvider.hasItem(Items.QUARTZ_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.QUARTZ_BLOCK))
+					.criterion(FabricRecipeProvider.hasItem(Items.QUARTZ), FabricRecipeProvider.conditionsFromItem(Items.QUARTZ))
 					.offerTo(exporter);
 			ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, COMPRESSED_REDSTONE).pattern("iii").pattern("iii").pattern("iii").input('i', Items.REDSTONE_BLOCK)
 					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_REDSTONE), FabricRecipeProvider.conditionsFromItem(COMPRESSED_REDSTONE))
@@ -91,6 +123,14 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 			ShapedRecipeJsonBuilder.create(RecipeCategory.REDSTONE, COMPRESSED_SLIME).pattern("iii").pattern("iii").pattern("iii").input('i', Items.SLIME_BLOCK)
 					.criterion(FabricRecipeProvider.hasItem(COMPRESSED_SLIME), FabricRecipeProvider.conditionsFromItem(COMPRESSED_SLIME))
 					.criterion(FabricRecipeProvider.hasItem(Items.SLIME_BLOCK), FabricRecipeProvider.conditionsFromItem(Items.SLIME_BLOCK))
+					.offerTo(exporter);
+
+			ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, RETURN_ROD).pattern(" c ").pattern("dbd").pattern("nbn").input('c', CERAMIC_EYE).input('d', Items.DIAMOND).input('b', Items.BLAZE_ROD).input('n', Items.NETHERITE_INGOT)
+					.criterion(FabricRecipeProvider.hasItem(RETURN_ROD), FabricRecipeProvider.conditionsFromItem(RETURN_ROD))
+					.criterion(FabricRecipeProvider.hasItem(CERAMIC_EYE), FabricRecipeProvider.conditionsFromItem(CERAMIC_EYE))
+					.criterion(FabricRecipeProvider.hasItem(Items.DIAMOND), FabricRecipeProvider.conditionsFromItem(Items.DIAMOND))
+					.criterion(FabricRecipeProvider.hasItem(Items.BLAZE_ROD), FabricRecipeProvider.conditionsFromItem(Items.BLAZE_ROD))
+					.criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_INGOT), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT))
 					.offerTo(exporter);
 
 			RecipeProvider.offerSmelting(exporter, List.of(COATED_EYE), RecipeCategory.MISC, CERAMIC_EYE, 1.5f, 500, "TBS4");

@@ -1,21 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_compressedquartz": {
+    "has_compresseddiamond": {
       "conditions": {
         "items": [
           {
-            "items": "tbs4content:compressedquartz"
+            "items": "tbs4content:compresseddiamond"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_quartz": {
+    "has_diamond_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:quartz"
+            "items": "minecraft:diamond_block"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tbs4content:compressedquartz"
+        "recipe": "minecraft:diamond_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_compressedquartz",
-      "has_quartz"
+      "has_diamond_block",
+      "has_compresseddiamond"
     ]
   ],
   "rewards": {
     "recipes": [
-      "tbs4content:compressedquartz"
+      "minecraft:diamond_block"
     ]
   }
 }

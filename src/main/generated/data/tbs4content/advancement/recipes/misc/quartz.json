@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "tbs4content:compressedquartz"
+        "recipe": "minecraft:quartz"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_compressedquartz",
-      "has_quartz"
+      "has_quartz",
+      "has_compressedquartz"
     ]
   ],
   "rewards": {
     "recipes": [
-      "tbs4content:compressedquartz"
+      "minecraft:quartz"
     ]
   }
 }

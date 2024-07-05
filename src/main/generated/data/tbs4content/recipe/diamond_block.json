@@ -3,11 +3,11 @@
   "category": "building",
   "ingredients": [
     {
-      "item": "tbs4content:compressedgold"
+      "item": "tbs4content:compresseddiamond"
     }
   ],
   "result": {
     "count": 9,
-    "id": "minecraft:gold_block"
+    "id": "minecraft:diamond_block"
   }
 }

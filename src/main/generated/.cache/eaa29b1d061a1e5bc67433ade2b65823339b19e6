@@ -1,4 +1,4 @@
-// 1.21	2024-07-04T21:31:15.4211028	TBS4Content/Recipes
+// 1.21	2024-07-04T23:32:16.3359148	TBS4Content/Recipes
 c397ebd7879cf7ba2517c2a3c16a4842cb0ce33e data\tbs4content\advancement\recipes\building_blocks\compressedcopper.json
 76cb2af6987a31dd6521a233a1cd31345207f697 data\tbs4content\recipe\compressedcopper.json
 dbb0a57267e9f4d688e65a17a82c2d03d20c78db data\tbs4content\recipe\emerald_block.json
@@ -7,6 +7,7 @@ bffac8e60e373ac7725ae1badedb7554f9e1c8be data\tbs4content\recipe\compressedredst
 7d5495fda5738f21c400ae853999d20599bfb041 data\tbs4content\recipe\gold_block.json
 62279a5289d280315ec3ae074c4f06928fe8a09d data\tbs4content\advancement\recipes\building_blocks\compresseddiamond.json
 10910e3ed8f01c1a05d23acd5ede70204794be3e data\tbs4content\advancement\recipes\tools\returnrod.json
+09694a41d9c214165d57d916c0374757fb03d70c data\tbs4content\advancement\recipes\combat\shapedcharge.json
 b645d07c7ad702bb3b2ee1d89bbc2d9708ca7f9a data\tbs4content\recipe\diamond_block.json
 84f3bd5b8462b9a8f02dcf1af45c3c4f95647052 data\tbs4content\advancement\recipes\misc\ceramiceye_from_smelting_coatedeye.json
 55d0ebbb497c40fd37a6acde45eea95a353ecfae data\tbs4content\advancement\recipes\building_blocks\compressednetherite.json
@@ -28,6 +29,7 @@ de9a4cd08c20e9993426f7cabed5b37d41fc41fc data\tbs4content\advancement\recipes\bu
 44bf34c6507adb01cd8d23b673d5e59748dc1257 data\tbs4content\advancement\recipes\building_blocks\copper_block.json
 60498ae1feb04575a4f34a0b882d8974629e64a0 data\tbs4content\advancement\recipes\building_blocks\compressedgold.json
 36f965c79a672fa102835ae776326812e023f469 data\tbs4content\recipe\endstonedust.json
+3104738027f74275669c346df811643bd530634f data\tbs4content\recipe\shapedcharge.json
 93edfcddebb8ad1c90f7b05d1af3213bdf285206 data\tbs4content\recipe\compressedslime.json
 8e1d5b954ffbe2fe11452fa468d1a352a61f40d3 data\tbs4content\recipe\compressedemerald.json
 8674060eb7edd578b9449433aeb9e5b2bb524ab5 data\tbs4content\recipe\endstoneclay.json

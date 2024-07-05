@@ -39,6 +39,8 @@ public class TBS4Content implements ModInitializer {
 	public static final Block COMPRESSED_REDSTONE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedredstone", true);
 	public static final Block COMPRESSED_SLIME = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressedslime", true);
 
+	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shapedcharge", true);
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.

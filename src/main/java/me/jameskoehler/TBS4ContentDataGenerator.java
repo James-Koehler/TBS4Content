@@ -133,6 +133,12 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 					.criterion(FabricRecipeProvider.hasItem(Items.NETHERITE_INGOT), FabricRecipeProvider.conditionsFromItem(Items.NETHERITE_INGOT))
 					.offerTo(exporter);
 
+			ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, SHAPED_CHARGE).pattern("iti").pattern("iti").pattern("iii").input('i', Items.IRON_INGOT).input('t', Items.TNT)
+					.criterion(FabricRecipeProvider.hasItem(SHAPED_CHARGE), FabricRecipeProvider.conditionsFromItem(SHAPED_CHARGE))
+					.criterion(FabricRecipeProvider.hasItem(Items.IRON_INGOT), FabricRecipeProvider.conditionsFromItem(Items.IRON_INGOT))
+					.criterion(FabricRecipeProvider.hasItem(Items.TNT), FabricRecipeProvider.conditionsFromItem(Items.TNT))
+					.offerTo(exporter);
+
 			RecipeProvider.offerSmelting(exporter, List.of(COATED_EYE), RecipeCategory.MISC, CERAMIC_EYE, 1.5f, 500, "TBS4");
 		}
 	}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "tbs4content:compressedgold"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "minecraft:gold_block"
+  }
+}

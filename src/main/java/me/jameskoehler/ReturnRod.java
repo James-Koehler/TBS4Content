@@ -27,7 +27,6 @@ public class ReturnRod extends Item {
                 LoggerFactory.getLogger("tbs4content").info(spawnPoint.toString());
 
                 user.requestTeleport(spawnPoint.getX()+0.5, spawnPoint.getY()+0.7, spawnPoint.getZ()+0.5);
-                user.playSound(SoundEvents.ENTITY_CREEPER_PRIMED);
                 return TypedActionResult.success(user.getStackInHand(hand));
             }
         }

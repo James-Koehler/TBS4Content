@@ -25,5 +25,8 @@
   "block.tbs4content.compressedcopper": "Compressed Copper Block",
   "item.tbs4content.compressedcopper": "Compressed Copper Block",
   "block.tbs4content.shapedcharge": "Shaped Charge",
-  "item.tbs4content.shapedcharge": "Shaped Charge"
+  "item.tbs4content.shapedcharge": "Shaped Charge",
+
+
+  "itemGroup.tbs4content.tbs4content_group": "TBS4Content"
 }

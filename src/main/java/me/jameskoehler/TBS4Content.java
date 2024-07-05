@@ -2,13 +2,17 @@ package me.jameskoehler;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,6 +45,30 @@ public class TBS4Content implements ModInitializer {
 
 	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shapedcharge", true);
 
+	public static final ItemGroup TBS4CONTENT_GROUP = FabricItemGroup.builder()
+			.icon(() -> new ItemStack(END_STONE_DUST))
+			.displayName(Text.translatable("itemGroup.tbs4content.tbs4content_group"))
+			.entries((context, entries) -> {
+				entries.add(END_STONE_DUST);
+				entries.add(END_STONE_CLAY);
+				entries.add(COATED_EYE);
+				entries.add(CERAMIC_EYE);
+				entries.add(RETURN_ROD);
+
+				entries.add(COMPRESSED_IRON);
+				entries.add(COMPRESSED_COPPER);
+				entries.add(COMPRESSED_GOLD);
+				entries.add(COMPRESSED_NETHERITE);
+				entries.add(COMPRESSED_DIAMOND);
+				entries.add(COMPRESSED_EMERALD);
+				entries.add(COMPRESSED_AMETHYST);
+				entries.add(COMPRESSED_QUARTZ);
+				entries.add(COMPRESSED_REDSTONE);
+				entries.add(COMPRESSED_SLIME);
+
+				entries.add(SHAPED_CHARGE);
+			}).build();
+
 
 	@Override
 	public void onInitialize() {
@@ -49,7 +77,7 @@ public class TBS4Content implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Loading TBS4 Content Patch...");
-
+		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_group"), TBS4CONTENT_GROUP);
 		ModBlocks.initialize();
 	}
 }

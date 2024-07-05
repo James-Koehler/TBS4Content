@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -27,16 +28,16 @@ public class TBS4Content implements ModInitializer {
 	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "returnrod"), new ReturnRod(new Item.Settings()));
 
 	// Blocks
-	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compressediron", true);
-	public static final Block COMPRESSED_COPPER = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compressedcopper", true);
-	public static final Block COMPRESSED_GOLD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compressedgold", true);
-	public static final Block COMPRESSED_NETHERITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compressednetherite", true);
-	public static final Block COMPRESSED_DIAMOND = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compresseddiamond", true);
-	public static final Block COMPRESSED_EMERALD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compressedemerald", true);
-	public static final Block COMPRESSED_AMETHYST = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK)), "compressedamethyst", true);
-	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compressedquartz", true);
-	public static final Block COMPRESSED_REDSTONE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL)), "compressedredstone", true);
-	public static final Block COMPRESSED_SLIME = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME)), "compressedslime", true);
+	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressediron", true);
+	public static final Block COMPRESSED_COPPER = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedcopper", true);
+	public static final Block COMPRESSED_GOLD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedgold", true);
+	public static final Block COMPRESSED_NETHERITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(70.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressednetherite", true);
+	public static final Block COMPRESSED_DIAMOND = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compresseddiamond", true);
+	public static final Block COMPRESSED_EMERALD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedemerald", true);
+	public static final Block COMPRESSED_AMETHYST = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedamethyst", true);
+	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedquartz", true);
+	public static final Block COMPRESSED_REDSTONE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedredstone", true);
+	public static final Block COMPRESSED_SLIME = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressedslime", true);
 
 	@Override
 	public void onInitialize() {

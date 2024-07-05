@@ -3,6 +3,7 @@ package me.jameskoehler;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
@@ -143,11 +144,37 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 		}
 	}
 
+	private static class TBS4LootTables extends FabricBlockLootTableProvider {
+
+		public TBS4LootTables(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture){
+
+			super(dataOutput, registriesFuture);
+		}
+
+		@Override
+		public void generate() {
+
+			addDrop(COMPRESSED_IRON, drops(COMPRESSED_IRON));
+			addDrop(COMPRESSED_COPPER, drops(COMPRESSED_COPPER));
+			addDrop(COMPRESSED_GOLD, drops(COMPRESSED_GOLD));
+			addDrop(COMPRESSED_NETHERITE, drops(COMPRESSED_NETHERITE));
+			addDrop(COMPRESSED_DIAMOND, drops(COMPRESSED_DIAMOND));
+			addDrop(COMPRESSED_EMERALD, drops(COMPRESSED_EMERALD));
+			addDrop(COMPRESSED_QUARTZ, drops(COMPRESSED_QUARTZ));
+			addDrop(COMPRESSED_AMETHYST, drops(COMPRESSED_AMETHYST));
+			addDrop(COMPRESSED_SLIME, drops(COMPRESSED_SLIME));
+			addDrop(COMPRESSED_REDSTONE, drops(COMPRESSED_REDSTONE));
+
+			addDrop(SHAPED_CHARGE, drops(SHAPED_CHARGE));
+		}
+	}
+
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
 		pack.addProvider(TBS4RecipeGenerator::new);
+		pack.addProvider(TBS4LootTables::new);
 	}
 }

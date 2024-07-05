@@ -3,7 +3,7 @@
 	"id": "tbs4content",
 	"version": "${version}",
 	"name": "TBS4Content",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "A content mod made specifically for The Boys Season 4",
 	"authors": [
 		"whicc",
 		"Dawn"

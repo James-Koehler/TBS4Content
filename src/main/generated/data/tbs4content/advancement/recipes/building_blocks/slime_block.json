@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_compressedslime": {
+    "has_compressed_slime": {
       "conditions": {
         "items": [
           {
-            "items": "tbs4content:compressedslime"
+            "items": "tbs4content:compressed_slime"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_slime_block",
-      "has_compressedslime"
+      "has_compressed_slime"
     ]
   ],
   "rewards": {

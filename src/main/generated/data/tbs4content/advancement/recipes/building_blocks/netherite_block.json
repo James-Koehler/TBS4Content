@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_compressednetherite": {
+    "has_compressed_netherite": {
       "conditions": {
         "items": [
           {
-            "items": "tbs4content:compressednetherite"
+            "items": "tbs4content:compressed_netherite"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_netherite_block",
-      "has_compressednetherite"
+      "has_compressed_netherite"
     ]
   ],
   "rewards": {

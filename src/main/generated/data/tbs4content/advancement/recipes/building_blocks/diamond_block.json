@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_compresseddiamond": {
+    "has_compressed_diamond": {
       "conditions": {
         "items": [
           {
-            "items": "tbs4content:compresseddiamond"
+            "items": "tbs4content:compressed_diamond"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_diamond_block",
-      "has_compresseddiamond"
+      "has_compressed_diamond"
     ]
   ],
   "rewards": {

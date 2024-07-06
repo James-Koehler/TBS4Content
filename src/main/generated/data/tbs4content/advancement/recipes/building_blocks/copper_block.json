@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_compressedgold": {
+    "has_compressed_gold": {
       "conditions": {
         "items": [
           {
-            "items": "tbs4content:compressedgold"
+            "items": "tbs4content:compressed_gold"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_copper_block",
-      "has_compressedgold"
+      "has_compressed_gold"
     ]
   ],
   "rewards": {

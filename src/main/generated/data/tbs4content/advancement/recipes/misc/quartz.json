@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_compressedquartz": {
+    "has_compressed_quartz": {
       "conditions": {
         "items": [
           {
-            "items": "tbs4content:compressedquartz"
+            "items": "tbs4content:compressed_quartz"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_quartz",
-      "has_compressedquartz"
+      "has_compressed_quartz"
     ]
   ],
   "rewards": {

@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_compressedredstone": {
+    "has_compressed_redstone": {
       "conditions": {
         "items": [
           {
-            "items": "tbs4content:compressedredstone"
+            "items": "tbs4content:compressed_redstone"
           }
         ]
       },
@@ -32,7 +32,7 @@
     [
       "has_the_recipe",
       "has_redstone_block",
-      "has_compressedredstone"
+      "has_compressed_redstone"
     ]
   ],
   "rewards": {

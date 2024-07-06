@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_compressed_quartz": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tbs4content:compressed_quartz"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_quartz": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:quartz"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "tbs4content:compressed_quartz"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_compressed_quartz",
+      "has_quartz"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "tbs4content:compressed_quartz"
+    ]
+  }
+}

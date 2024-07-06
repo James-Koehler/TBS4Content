@@ -80,6 +80,6 @@ public class Imbuer extends BlockWithEntity implements BlockEntityProvider {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
 
-        return checkType(type, IMBUER_BLOCK_ENTITY, ImbuerBlockEntity::tick);
+        return validateTicker(type, IMBUER_BLOCK_ENTITY, ImbuerBlockEntity::tick);
     }
 }

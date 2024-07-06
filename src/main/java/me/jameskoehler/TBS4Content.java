@@ -7,6 +7,8 @@ import me.jameskoehler.blocks.customBlocks.CompressedRedstoneBlock;
 import me.jameskoehler.blocks.customBlocks.CompressedSlimeBlock;
 import me.jameskoehler.blocks.customBlocks.Compressor;
 import me.jameskoehler.blocks.customBlocks.Imbuer;
+import me.jameskoehler.items.Chemotherapy;
+import me.jameskoehler.items.IodineTablets;
 import me.jameskoehler.potioneffects.Leukemia;
 import me.jameskoehler.potioneffects.RadiationPoisoning;
 import me.jameskoehler.tools.ReturnRod;
@@ -44,6 +46,10 @@ public class TBS4Content implements ModInitializer {
 	public static final Item COATED_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "coated_eye"), new Item(new Item.Settings().maxCount(1)));
 	public static final Item CERAMIC_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "ceramic_eye"), new Item(new Item.Settings().maxCount(1)));
 	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "return_rod"), new ReturnRod(new Item.Settings().maxCount(1)));
+	public static final Item RAW_LEAD = Registry.register(Registries.ITEM, Identifier.of(modID, "raw_lead"), new Item(new Item.Settings()));
+	public static final Item LEAD_INGOT = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_ingot"), new Item(new Item.Settings()));
+	public static final IodineTablets IODINE_TABLETS = Registry.register(Registries.ITEM, Identifier.of(modID, "iodine_tablets"), new IodineTablets(new Item.Settings()));
+	public static final Chemotherapy CHEMOTHERAPY = Registry.register(Registries.ITEM, Identifier.of(modID, "chemotherapy"), new Chemotherapy(new Item.Settings()));
 
 	public static final Item DANITE_CRYSTAL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_crystal"), new Item(new Item.Settings()));
 
@@ -58,11 +64,20 @@ public class TBS4Content implements ModInitializer {
 	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_quartz", true);
 	public static final CompressedRedstoneBlock COMPRESSED_REDSTONE = (CompressedRedstoneBlock) ModBlocks.register(new CompressedRedstoneBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_redstone", true);
 	public static final CompressedSlimeBlock COMPRESSED_SLIME = (CompressedSlimeBlock) ModBlocks.register(new CompressedSlimeBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressed_slime", true);
+	public static final Block LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(10.0f, 10.0f)), "lead_block", true);
+	public static final Block COMPRESSED_LEAD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 60.f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_lead", true);
+	public static final Block DANITE_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(5.0f, 5.0f)), "danite_block", true);
+	public static final Block COMPRESSED_DANITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.BLOCK)), "compressed_danite", true);
 
 	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shaped_charge", true);
 
 	public static final Imbuer IMBUER = (Imbuer) ModBlocks.register(new Imbuer(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(15.0f, 250.0f)), "imbuer", true);
 	public static final Compressor COMPRESSOR = (Compressor) ModBlocks.register(new Compressor(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(20.0f, 250.0f)), "compressor", true);
+
+	// Ores
+	public static final Block LEAD_ORE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f)), "lead_ore", true);
+	public static final Block DEEPSLATE_LEAD_ORE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(6.0f, 6.0f)), "deepslate_lead_ore", true);
+	public static final Block RAW_LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f)), "raw_lead_block", true);
 
 	// Block Entities
 	public static final BlockEntityType<ImbuerBlockEntity> IMBUER_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(modID, "imbuer_block_entity"), BlockEntityType.Builder.create(ImbuerBlockEntity::new, IMBUER).build());
@@ -80,7 +95,13 @@ public class TBS4Content implements ModInitializer {
 				entries.add(CERAMIC_EYE);
 				entries.add(RETURN_ROD);
 
+				entries.add(RAW_LEAD);
 				entries.add(DANITE_CRYSTAL);
+
+				entries.add(LEAD_INGOT);
+
+				entries.add(LEAD_BLOCK);
+				entries.add(DANITE_BLOCK);
 
 				entries.add(COMPRESSED_IRON);
 				entries.add(COMPRESSED_COPPER);
@@ -92,9 +113,15 @@ public class TBS4Content implements ModInitializer {
 				entries.add(COMPRESSED_QUARTZ);
 				entries.add(COMPRESSED_REDSTONE);
 				entries.add(COMPRESSED_SLIME);
+				entries.add(COMPRESSED_LEAD);
+				entries.add(COMPRESSED_DANITE);
 
 				entries.add(IMBUER);
 				entries.add(COMPRESSOR);
+
+				entries.add(LEAD_ORE);
+				entries.add(DEEPSLATE_LEAD_ORE);
+				entries.add(RAW_LEAD_BLOCK);
 
 				entries.add(SHAPED_CHARGE);
 			}).build();
@@ -126,6 +153,9 @@ public class TBS4Content implements ModInitializer {
 				entries.add(RETURN_ROD);
 
 				entries.add(DANITE_CRYSTAL);
+
+				entries.add(IODINE_TABLETS);
+				entries.add(CHEMOTHERAPY);
 			}).build();
 
 

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_coated_eye": {
+      "conditions": {
+        "items": [
+          {
+            "items": "tbs4content:coated_eye"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:ceramic_eye_from_smelting_coated_eye"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_coated_eye"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:ceramic_eye_from_smelting_coated_eye"
+    ]
+  }
+}

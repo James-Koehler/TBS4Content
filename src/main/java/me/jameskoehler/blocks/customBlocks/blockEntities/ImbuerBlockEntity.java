@@ -1,6 +1,7 @@
 package me.jameskoehler.blocks.customBlocks.blockEntities;
 
 import me.jameskoehler.TBS4Content;
+import me.jameskoehler.screen.ImbuerScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -86,7 +87,7 @@ public class ImbuerBlockEntity extends BlockEntity implements NamedScreenHandler
     @Nullable
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return null;
+        return new ImbuerScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
 
     @Override

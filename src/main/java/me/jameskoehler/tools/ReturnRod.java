@@ -1,4 +1,4 @@
-package me.jameskoehler;
+package me.jameskoehler.tools;
 
 import me.emafire003.dev.particleanimationlib.Effect;
 import me.emafire003.dev.particleanimationlib.EffectType;

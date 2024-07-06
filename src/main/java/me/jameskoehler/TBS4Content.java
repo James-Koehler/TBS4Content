@@ -28,11 +28,11 @@ public class TBS4Content implements ModInitializer {
 	public static final String modID = "tbs4content";
 
 	// Items
-	public static final Item END_STONE_DUST = Registry.register(Registries.ITEM, Identifier.of(modID, "endstonedust"), new Item(new Item.Settings()));
-	public static final Item END_STONE_CLAY = Registry.register(Registries.ITEM, Identifier.of(modID, "endstoneclay"), new Item(new Item.Settings()));
-	public static final Item COATED_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "coatedeye"), new Item(new Item.Settings()));
-	public static final Item CERAMIC_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "ceramiceye"), new Item(new Item.Settings()));
-	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "returnrod"), new ReturnRod(new Item.Settings()));
+	public static final Item END_STONE_DUST = Registry.register(Registries.ITEM, Identifier.of(modID, "endstonedust"), new Item(new Item.Settings().maxCount(16)));
+	public static final Item END_STONE_CLAY = Registry.register(Registries.ITEM, Identifier.of(modID, "endstoneclay"), new Item(new Item.Settings().maxCount(16)));
+	public static final Item COATED_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "coatedeye"), new Item(new Item.Settings().maxCount(1)));
+	public static final Item CERAMIC_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "ceramiceye"), new Item(new Item.Settings().maxCount(1)));
+	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "returnrod"), new ReturnRod(new Item.Settings().maxCount(1)));
 
 	// Blocks
 	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressediron", true);

@@ -3,7 +3,9 @@
 	"package": "me.jameskoehler.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"RedstoneUpdate",
+		"RedstoneViewTest",
+		"Prop"
 	],
 	"injectors": {
 		"defaultRequire": 1

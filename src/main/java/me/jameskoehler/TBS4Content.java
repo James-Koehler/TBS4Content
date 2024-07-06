@@ -2,6 +2,7 @@ package me.jameskoehler;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -69,6 +70,33 @@ public class TBS4Content implements ModInitializer {
 				entries.add(SHAPED_CHARGE);
 			}).build();
 
+	public static final ItemGroup TBS4CONTENT_COMPRESSED_BLOCKS_GROUP = FabricItemGroup.builder()
+			.icon(() -> new ItemStack(COMPRESSED_IRON))
+			.displayName(Text.translatable("itemGroup.tbs4content.tbs4content_compressed_blocks_group"))
+			.entries((context, entries) -> {
+				entries.add(COMPRESSED_IRON);
+				entries.add(COMPRESSED_COPPER);
+				entries.add(COMPRESSED_GOLD);
+				entries.add(COMPRESSED_NETHERITE);
+				entries.add(COMPRESSED_DIAMOND);
+				entries.add(COMPRESSED_EMERALD);
+				entries.add(COMPRESSED_AMETHYST);
+				entries.add(COMPRESSED_QUARTZ);
+				entries.add(COMPRESSED_REDSTONE);
+				entries.add(COMPRESSED_SLIME);
+			}).build();
+
+	public static final ItemGroup TBS4CONTENT_MAGIC_GROUP = FabricItemGroup.builder()
+			.icon(() -> new ItemStack(RETURN_ROD))
+			.displayName(Text.translatable("itemGroup.tbs4content.tbs4content_magic_group"))
+			.entries((context, entries) -> {
+				entries.add(END_STONE_DUST);
+				entries.add(END_STONE_CLAY);
+				entries.add(COATED_EYE);
+				entries.add(CERAMIC_EYE);
+				entries.add(RETURN_ROD);
+			}).build();
+
 
 	@Override
 	public void onInitialize() {
@@ -77,7 +105,11 @@ public class TBS4Content implements ModInitializer {
 		// Proceed with mild caution.
 
 		LOGGER.info("Loading TBS4 Content Patch...");
+
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_group"), TBS4CONTENT_GROUP);
+		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_compressed_blocks_group"), TBS4CONTENT_COMPRESSED_BLOCKS_GROUP);
+		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_magic_group"), TBS4CONTENT_MAGIC_GROUP);
+
 		ModBlocks.initialize();
 	}
 }

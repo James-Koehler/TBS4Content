@@ -1,5 +1,6 @@
 package me.jameskoehler.screen;
 
+import me.jameskoehler.screen.ImbuerScreenHandler;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.entity.player.PlayerInventory;

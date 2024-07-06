@@ -12,6 +12,8 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 import org.jetbrains.annotations.Nullable;
 
+import static me.jameskoehler.screen.ModScreenHandlers.IMBUER_SCREEN_HANDLER;
+
 public class ImbuerScreenHandler extends ScreenHandler {
 
     private final Inventory inv;
@@ -23,7 +25,7 @@ public class ImbuerScreenHandler extends ScreenHandler {
 
     public ImbuerScreenHandler(int syncId, PlayerInventory playerInv, Inventory inv, PropertyDelegate delegate) {
 
-        super(type, syncId);
+        super(IMBUER_SCREEN_HANDLER, syncId);
 
         checkSize(inv, 4);
         this.inv = inv;

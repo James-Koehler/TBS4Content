@@ -1,5 +1,6 @@
 package me.jameskoehler.screen;
 
+import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.screen.ScreenHandlerType;
 
 public class ModScreenHandlers {
@@ -8,6 +9,6 @@ public class ModScreenHandlers {
 
     public static void registerAllScreenHandlers(){
 
-        IMBUER_SCREEN_HANDLER = new ScreenHandlerType<>(ImbuerScreenHandler::new);
+        IMBUER_SCREEN_HANDLER = new ScreenHandlerType<>(ImbuerScreenHandler::new, FeatureFlags.VANILLA_FEATURES);
     }
 }

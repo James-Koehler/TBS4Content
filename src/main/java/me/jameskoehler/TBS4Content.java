@@ -11,6 +11,7 @@ import me.jameskoehler.items.Chemotherapy;
 import me.jameskoehler.items.IodineTablets;
 import me.jameskoehler.potioneffects.Leukemia;
 import me.jameskoehler.potioneffects.RadiationPoisoning;
+import me.jameskoehler.screen.ModScreenHandlers;
 import me.jameskoehler.tools.ReturnRod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -170,6 +171,8 @@ public class TBS4Content implements ModInitializer {
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_group"), TBS4CONTENT_GROUP);
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_compressed_blocks_group"), TBS4CONTENT_COMPRESSED_BLOCKS_GROUP);
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_magic_group"), TBS4CONTENT_MAGIC_GROUP);
+
+		ModScreenHandlers.registerAllScreenHandlers();
 
 		ModBlocks.initialize();
 	}

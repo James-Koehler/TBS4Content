@@ -1,6 +1,7 @@
 package me.jameskoehler;
 
 import me.jameskoehler.blocks.ModBlocks;
+import me.jameskoehler.blocks.customBlocks.CompressedSlimeBlock;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.AbstractBlock;
@@ -41,7 +42,7 @@ public class TBS4Content implements ModInitializer {
 	public static final Block COMPRESSED_AMETHYST = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedamethyst", true);
 	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedquartz", true);
 	public static final Block COMPRESSED_REDSTONE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedredstone", true);
-	public static final Block COMPRESSED_SLIME = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressedslime", true);
+	public static final CompressedSlimeBlock COMPRESSED_SLIME = (CompressedSlimeBlock) ModBlocks.register(new CompressedSlimeBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressedslime", true);
 
 	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shapedcharge", true);
 

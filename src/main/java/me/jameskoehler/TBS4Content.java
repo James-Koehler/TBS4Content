@@ -3,12 +3,15 @@ package me.jameskoehler;
 import me.jameskoehler.blocks.ModBlocks;
 import me.jameskoehler.blocks.customBlocks.CompressedRedstoneBlock;
 import me.jameskoehler.blocks.customBlocks.CompressedSlimeBlock;
+import me.jameskoehler.potioneffects.Leukemia;
+import me.jameskoehler.potioneffects.RadiationPoisoning;
 import me.jameskoehler.tools.ReturnRod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -26,6 +29,10 @@ public class TBS4Content implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
     public static final Logger LOGGER = LoggerFactory.getLogger("tbs4content");
 	public static final String modID = "tbs4content";
+
+	// Status Effects
+	public static final Leukemia LEUKEMIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "leukemia"), new Leukemia());
+	public static final RadiationPoisoning RADIATION_POISONING = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "radiation_poisoning"), new RadiationPoisoning());
 
 	// Items
 	public static final Item END_STONE_DUST = Registry.register(Registries.ITEM, Identifier.of(modID, "endstonedust"), new Item(new Item.Settings().maxCount(16)));

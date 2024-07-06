@@ -3,9 +3,11 @@
 	"package": "me.jameskoehler.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"LivingEntityMixin",
+		"MilkBucketMixin",
+		"Prop",
 		"RedstoneUpdate",
-		"RedstoneViewTest",
-		"Prop"
+		"RedstoneViewTest"
 	],
 	"injectors": {
 		"defaultRequire": 1

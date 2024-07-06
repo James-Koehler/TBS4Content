@@ -1,5 +1,6 @@
 package me.jameskoehler;
 
+import me.jameskoehler.armor.ModArmorMaterials;
 import me.jameskoehler.blocks.ModBlocks;
 import me.jameskoehler.blocks.customBlocks.blockEntities.CompressorBlockEntity;
 import me.jameskoehler.blocks.customBlocks.blockEntities.ImbuerBlockEntity;
@@ -19,6 +20,7 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -53,6 +55,7 @@ public class TBS4Content implements ModInitializer {
 	public static final Chemotherapy CHEMOTHERAPY = Registry.register(Registries.ITEM, Identifier.of(modID, "chemotherapy"), new Chemotherapy(new Item.Settings()));
 
 	public static final Item DANITE_CRYSTAL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_crystal"), new Item(new Item.Settings()));
+
 
 	// Blocks
 	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_iron", true);
@@ -173,6 +176,7 @@ public class TBS4Content implements ModInitializer {
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_magic_group"), TBS4CONTENT_MAGIC_GROUP);
 
 		ModScreenHandlers.registerAllScreenHandlers();
+
 
 		ModBlocks.initialize();
 	}

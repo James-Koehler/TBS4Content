@@ -1,8 +1,6 @@
 package me.jameskoehler;
 
 import net.fabricmc.api.ModInitializer;
-
-import net.fabricmc.fabric.api.item.v1.FabricItem;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;

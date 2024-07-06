@@ -166,6 +166,9 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 			addDrop(COMPRESSED_REDSTONE, drops(COMPRESSED_REDSTONE));
 
 			addDrop(SHAPED_CHARGE, drops(SHAPED_CHARGE));
+
+			addDrop(IMBUER, drops(IMBUER));
+			addDrop(COMPRESSOR, drops(COMPRESSOR));
 		}
 	}
 

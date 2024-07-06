@@ -1,8 +1,12 @@
 package me.jameskoehler;
 
 import me.jameskoehler.blocks.ModBlocks;
+import me.jameskoehler.blocks.customBlocks.blockEntities.CompressorBlockEntity;
+import me.jameskoehler.blocks.customBlocks.blockEntities.ImbuerBlockEntity;
 import me.jameskoehler.blocks.customBlocks.CompressedRedstoneBlock;
 import me.jameskoehler.blocks.customBlocks.CompressedSlimeBlock;
+import me.jameskoehler.blocks.customBlocks.Compressor;
+import me.jameskoehler.blocks.customBlocks.Imbuer;
 import me.jameskoehler.potioneffects.Leukemia;
 import me.jameskoehler.potioneffects.RadiationPoisoning;
 import me.jameskoehler.tools.ReturnRod;
@@ -10,8 +14,8 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -35,26 +39,37 @@ public class TBS4Content implements ModInitializer {
 	public static final RadiationPoisoning RADIATION_POISONING = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "radiation_poisoning"), new RadiationPoisoning());
 
 	// Items
-	public static final Item END_STONE_DUST = Registry.register(Registries.ITEM, Identifier.of(modID, "endstonedust"), new Item(new Item.Settings().maxCount(16)));
-	public static final Item END_STONE_CLAY = Registry.register(Registries.ITEM, Identifier.of(modID, "endstoneclay"), new Item(new Item.Settings().maxCount(16)));
-	public static final Item COATED_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "coatedeye"), new Item(new Item.Settings().maxCount(1)));
-	public static final Item CERAMIC_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "ceramiceye"), new Item(new Item.Settings().maxCount(1)));
-	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "returnrod"), new ReturnRod(new Item.Settings().maxCount(1)));
+	public static final Item END_STONE_DUST = Registry.register(Registries.ITEM, Identifier.of(modID, "end_stone_dust"), new Item(new Item.Settings().maxCount(16)));
+	public static final Item END_STONE_CLAY = Registry.register(Registries.ITEM, Identifier.of(modID, "end_stone_clay"), new Item(new Item.Settings().maxCount(16)));
+	public static final Item COATED_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "coated_eye"), new Item(new Item.Settings().maxCount(1)));
+	public static final Item CERAMIC_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "ceramic_eye"), new Item(new Item.Settings().maxCount(1)));
+	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "return_rod"), new ReturnRod(new Item.Settings().maxCount(1)));
+
+	public static final Item DANITE_CRYSTAL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_crystal"), new Item(new Item.Settings()));
 
 	// Blocks
-	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressediron", true);
-	public static final Block COMPRESSED_COPPER = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedcopper", true);
-	public static final Block COMPRESSED_GOLD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedgold", true);
-	public static final Block COMPRESSED_NETHERITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(70.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressednetherite", true);
-	public static final Block COMPRESSED_DIAMOND = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compresseddiamond", true);
-	public static final Block COMPRESSED_EMERALD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedemerald", true);
-	public static final Block COMPRESSED_AMETHYST = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedamethyst", true);
-	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedquartz", true);
-	public static final CompressedRedstoneBlock COMPRESSED_REDSTONE = (CompressedRedstoneBlock) ModBlocks.register(new CompressedRedstoneBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressedredstone", true);
-	public static final CompressedSlimeBlock COMPRESSED_SLIME = (CompressedSlimeBlock) ModBlocks.register(new CompressedSlimeBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressedslime", true);
+	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_iron", true);
+	public static final Block COMPRESSED_COPPER = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_copper", true);
+	public static final Block COMPRESSED_GOLD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_gold", true);
+	public static final Block COMPRESSED_NETHERITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(70.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_netherite", true);
+	public static final Block COMPRESSED_DIAMOND = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_diamond", true);
+	public static final Block COMPRESSED_EMERALD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_emerald", true);
+	public static final Block COMPRESSED_AMETHYST = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_amethyst", true);
+	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_quartz", true);
+	public static final CompressedRedstoneBlock COMPRESSED_REDSTONE = (CompressedRedstoneBlock) ModBlocks.register(new CompressedRedstoneBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_redstone", true);
+	public static final CompressedSlimeBlock COMPRESSED_SLIME = (CompressedSlimeBlock) ModBlocks.register(new CompressedSlimeBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressed_slime", true);
 
-	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shapedcharge", true);
+	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shaped_charge", true);
 
+	public static final Imbuer IMBUER = (Imbuer) ModBlocks.register(new Imbuer(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(15.0f, 250.0f)), "imbuer", true);
+	public static final Compressor COMPRESSOR = (Compressor) ModBlocks.register(new Compressor(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(20.0f, 250.0f)), "compressor", true);
+
+	// Block Entities
+	public static final BlockEntityType<ImbuerBlockEntity> IMBUER_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(modID, "imbuer_block_entity"), BlockEntityType.Builder.create(ImbuerBlockEntity::new, IMBUER).build());
+	public static final BlockEntityType<CompressorBlockEntity> COMPRESOR_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(modID, "compressor_block_entity"), BlockEntityType.Builder.create(CompressorBlockEntity::new, COMPRESSOR).build());
+
+
+	// Item Groups
 	public static final ItemGroup TBS4CONTENT_GROUP = FabricItemGroup.builder()
 			.icon(() -> new ItemStack(END_STONE_DUST))
 			.displayName(Text.translatable("itemGroup.tbs4content.tbs4content_group"))
@@ -64,6 +79,8 @@ public class TBS4Content implements ModInitializer {
 				entries.add(COATED_EYE);
 				entries.add(CERAMIC_EYE);
 				entries.add(RETURN_ROD);
+
+				entries.add(DANITE_CRYSTAL);
 
 				entries.add(COMPRESSED_IRON);
 				entries.add(COMPRESSED_COPPER);
@@ -75,6 +92,9 @@ public class TBS4Content implements ModInitializer {
 				entries.add(COMPRESSED_QUARTZ);
 				entries.add(COMPRESSED_REDSTONE);
 				entries.add(COMPRESSED_SLIME);
+
+				entries.add(IMBUER);
+				entries.add(COMPRESSOR);
 
 				entries.add(SHAPED_CHARGE);
 			}).build();
@@ -104,6 +124,8 @@ public class TBS4Content implements ModInitializer {
 				entries.add(COATED_EYE);
 				entries.add(CERAMIC_EYE);
 				entries.add(RETURN_ROD);
+
+				entries.add(DANITE_CRYSTAL);
 			}).build();
 
 

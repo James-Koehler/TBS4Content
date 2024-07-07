@@ -8,7 +8,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import org.slf4j.LoggerFactory;
+
 
 public class LeadArmorItem extends ArmorItem {
     public LeadArmorItem(RegistryEntry<ArmorMaterial> material, Type type, Settings settings) {
@@ -21,7 +21,7 @@ public class LeadArmorItem extends ArmorItem {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        LoggerFactory.getLogger("tbs4content").info("{} has been equipped", user.getStackInHand(hand).toString());
         return super.use(world, user, hand);
     }
+
 }

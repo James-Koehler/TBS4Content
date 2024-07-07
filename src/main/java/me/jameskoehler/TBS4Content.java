@@ -1,5 +1,6 @@
 package me.jameskoehler;
 
+import me.jameskoehler.armor.DaniteArmorItem;
 import me.jameskoehler.armor.LeadArmorItem;
 import me.jameskoehler.armor.ModArmorMaterials;
 import me.jameskoehler.blocks.ModBlocks;
@@ -21,15 +22,13 @@ import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,16 +58,15 @@ public class TBS4Content implements ModInitializer {
 
 	public static final Item DANITE_CRYSTAL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_crystal"), new Item(new Item.Settings()));
 
-	public static final LeadArmorItem LEAD_HELMET = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_helmet"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1)));
-	public static final LeadArmorItem LEAD_CHESTPLATE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_chestplate"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1)));
-	public static final LeadArmorItem LEAD_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_leggings"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1)));
-	public static final LeadArmorItem LEAD_BOOTS = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_boots"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1)));
+	public static final LeadArmorItem LEAD_HELMET = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_helmet"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1).maxDamage(120)));
+	public static final LeadArmorItem LEAD_CHESTPLATE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_chestplate"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1).maxDamage(200)));
+	public static final LeadArmorItem LEAD_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_leggings"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1).maxDamage(180)));
+	public static final LeadArmorItem LEAD_BOOTS = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_boots"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1).maxDamage(155)));
 
-	public static final Item DANITE_HELMET = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_helmet"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1)));
-	public static final Item DANITE_CHESTPLATE = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_chestplate"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1)));
-	public static final Item DANITE_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_leggings"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1)));
-	public static final Item DANITE_BOOTS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_boots"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1)));
-
+	public static final DaniteArmorItem DANITE_HELMET = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_helmet"), new DaniteArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1).maxDamage(450).fireproof().rarity(Rarity.EPIC)));
+	public static final DaniteArmorItem DANITE_CHESTPLATE = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_chestplate"), new DaniteArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1).maxDamage(642).fireproof().rarity(Rarity.EPIC)));
+	public static final DaniteArmorItem DANITE_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_leggings"), new DaniteArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1).maxDamage(605).fireproof().rarity(Rarity.EPIC)));
+	public static final DaniteArmorItem DANITE_BOOTS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_boots"), new DaniteArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1).maxDamage(531).fireproof().rarity(Rarity.EPIC)));
 
 	// Blocks
 	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_iron", true);

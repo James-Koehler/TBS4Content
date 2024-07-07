@@ -19,12 +19,12 @@ public class ModArmorMaterials {
 
     public static final RegistryEntry<ArmorMaterial> LEAD = registerMaterial("leadarmor",
             Map.of(
-                    ArmorItem.Type.HELMET, 3,
-                    ArmorItem.Type.CHESTPLATE, 8,
-                    ArmorItem.Type.LEGGINGS, 6,
-                    ArmorItem.Type.BOOTS, 3
+                    ArmorItem.Type.HELMET, 2,
+                    ArmorItem.Type.CHESTPLATE, 6,
+                    ArmorItem.Type.LEGGINGS, 5,
+                    ArmorItem.Type.BOOTS, 2
             ),
-            5,
+            9,
             SoundEvents.ITEM_ARMOR_EQUIP_CHAIN,
             () -> Ingredient.ofItems(TBS4Content.LEAD_INGOT),
             0.0F,
@@ -33,16 +33,16 @@ public class ModArmorMaterials {
 
     public static final RegistryEntry<ArmorMaterial> DANITE = registerMaterial("danite",
             Map.of(
-                    ArmorItem.Type.HELMET, 2,
-                    ArmorItem.Type.CHESTPLATE, 4,
-                    ArmorItem.Type.LEGGINGS, 3,
-                    ArmorItem.Type.BOOTS, 2
+                    ArmorItem.Type.HELMET, 5,
+                    ArmorItem.Type.CHESTPLATE, 10,
+                    ArmorItem.Type.LEGGINGS, 8,
+                    ArmorItem.Type.BOOTS, 5
             ),
-            5,
+            25,
             SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
             () -> Ingredient.ofItems(TBS4Content.DANITE_CRYSTAL),
-            0.0f,
-            0.0f,
+            4.0f,
+            0.2f,
             false);
 
     public static RegistryEntry<ArmorMaterial> registerMaterial(String id, Map<ArmorItem.Type, Integer> defensePoints, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredientSupplier, float toughness, float knockbackResistance, boolean dyeable) {

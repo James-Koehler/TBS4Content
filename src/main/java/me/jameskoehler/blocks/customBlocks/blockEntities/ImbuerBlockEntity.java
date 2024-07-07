@@ -184,6 +184,8 @@ public class ImbuerBlockEntity extends BlockEntity implements NamedScreenHandler
 
             e.removeStack(1, 1);
             e.setStack(3, new ItemStack(DANITE_CRYSTAL, e.getStack(3).getCount() + 1));
+
+            resetProgress(e);
         }
     }
 

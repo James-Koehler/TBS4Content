@@ -32,6 +32,8 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static me.jameskoehler.screen.ModScreenHandlers.IMBUER_SCREEN_HANDLER;
+
 public class TBS4Content implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -177,6 +179,7 @@ public class TBS4Content implements ModInitializer {
 
 		ModScreenHandlers.registerAllScreenHandlers();
 
+		Registry.register(Registries.SCREEN_HANDLER, Identifier.of(modID, "imbuer_handler"), IMBUER_SCREEN_HANDLER);
 
 		ModBlocks.initialize();
 	}

@@ -48,19 +48,21 @@ public class TBS4Content implements ModInitializer {
 	public static final Leukemia LEUKEMIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "leukemia"), new Leukemia());
 	public static final RadiationPoisoning RADIATION_POISONING = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "radiation_poisoning"), new RadiationPoisoning());
 
-	// Items
+	// Materials
 	public static final Item END_STONE_DUST = Registry.register(Registries.ITEM, Identifier.of(modID, "end_stone_dust"), new Item(new Item.Settings().maxCount(16)));
 	public static final Item END_STONE_CLAY = Registry.register(Registries.ITEM, Identifier.of(modID, "end_stone_clay"), new Item(new Item.Settings().maxCount(16)));
 	public static final Item COATED_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "coated_eye"), new Item(new Item.Settings().maxCount(1)));
 	public static final Item CERAMIC_EYE = Registry.register(Registries.ITEM, Identifier.of(modID, "ceramic_eye"), new Item(new Item.Settings().maxCount(1)));
-	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "return_rod"), new ReturnRod(new Item.Settings().maxCount(1)));
+
 	public static final Item RAW_LEAD = Registry.register(Registries.ITEM, Identifier.of(modID, "raw_lead"), new Item(new Item.Settings()));
 	public static final Item LEAD_INGOT = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_ingot"), new Item(new Item.Settings()));
+	public static final Item DANITE_CRYSTAL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_crystal"), new Item(new Item.Settings()));
+
+	// Medicine
 	public static final IodineTablets IODINE_TABLETS = Registry.register(Registries.ITEM, Identifier.of(modID, "iodine_tablets"), new IodineTablets(new Item.Settings()));
 	public static final Chemotherapy CHEMOTHERAPY = Registry.register(Registries.ITEM, Identifier.of(modID, "chemotherapy"), new Chemotherapy(new Item.Settings()));
 
-	public static final Item DANITE_CRYSTAL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_crystal"), new Item(new Item.Settings()));
-
+	// Armor
 	public static final LeadArmorItem LEAD_HELMET = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_helmet"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1).maxDamage(120)));
 	public static final LeadArmorItem LEAD_CHESTPLATE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_chestplate"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1).maxDamage(200)));
 	public static final LeadArmorItem LEAD_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_leggings"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1).maxDamage(180)));
@@ -71,7 +73,13 @@ public class TBS4Content implements ModInitializer {
 	public static final DaniteArmorItem DANITE_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_leggings"), new DaniteArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1).maxDamage(605).fireproof().rarity(Rarity.EPIC)));
 	public static final DaniteArmorItem DANITE_BOOTS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_boots"), new DaniteArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1).maxDamage(531).fireproof().rarity(Rarity.EPIC)));
 
+	// Tools
+	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "return_rod"), new ReturnRod(new Item.Settings().maxCount(1)));
+
 	// Blocks
+	public static final Block DANITE_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(5.0f, 5.0f)), "danite_block", true);
+	public static final Block LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(10.0f, 10.0f)), "lead_block", true);
+
 	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_iron", true);
 	public static final Block COMPRESSED_COPPER = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_copper", true);
 	public static final Block COMPRESSED_GOLD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_gold", true);
@@ -82,9 +90,7 @@ public class TBS4Content implements ModInitializer {
 	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_quartz", true);
 	public static final CompressedRedstoneBlock COMPRESSED_REDSTONE = (CompressedRedstoneBlock) ModBlocks.register(new CompressedRedstoneBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_redstone", true);
 	public static final CompressedSlimeBlock COMPRESSED_SLIME = (CompressedSlimeBlock) ModBlocks.register(new CompressedSlimeBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressed_slime", true);
-	public static final Block LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(10.0f, 10.0f)), "lead_block", true);
 	public static final Block COMPRESSED_LEAD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 60.f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_lead", true);
-	public static final Block DANITE_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(5.0f, 5.0f)), "danite_block", true);
 	public static final Block COMPRESSED_DANITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.BLOCK)), "compressed_danite", true);
 
 	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shaped_charge", true);
@@ -114,8 +120,8 @@ public class TBS4Content implements ModInitializer {
 				entries.add(RETURN_ROD);
 
 				entries.add(RAW_LEAD);
-				entries.add(DANITE_CRYSTAL);
 
+				entries.add(DANITE_CRYSTAL);
 				entries.add(LEAD_INGOT);
 
 				entries.add(LEAD_BLOCK);
@@ -185,6 +191,23 @@ public class TBS4Content implements ModInitializer {
 				entries.add(CHEMOTHERAPY);
 			}).build();
 
+	public static final ItemGroup TBS4CONTENT_COMBAT_GROUP = FabricItemGroup.builder()
+			.icon(() -> new ItemStack(DANITE_HELMET))
+			.displayName(Text.translatable("itemGroup.tbs4content.tbs4content_combat_group"))
+			.entries((context, entries) -> {
+				entries.add(DANITE_HELMET);
+				entries.add(DANITE_CHESTPLATE);
+				entries.add(DANITE_LEGGINGS);
+				entries.add(DANITE_BOOTS);
+
+				entries.add(LEAD_HELMET);
+				entries.add(LEAD_CHESTPLATE);
+				entries.add(LEAD_LEGGINGS);
+				entries.add(LEAD_BOOTS);
+
+				entries.add(SHAPED_CHARGE);
+			}).build();
+
 
 	@Override
 	public void onInitialize() {
@@ -197,6 +220,7 @@ public class TBS4Content implements ModInitializer {
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_group"), TBS4CONTENT_GROUP);
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_compressed_blocks_group"), TBS4CONTENT_COMPRESSED_BLOCKS_GROUP);
 		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_magic_group"), TBS4CONTENT_MAGIC_GROUP);
+		Registry.register(Registries.ITEM_GROUP, Identifier.of(modID, "tbs4content_combat_group"), TBS4CONTENT_COMBAT_GROUP);
 
 		ModScreenHandlers.registerAllScreenHandlers();
 

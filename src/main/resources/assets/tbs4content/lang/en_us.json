@@ -3,12 +3,14 @@
   "item.tbs4content.end_stone_clay": "End Stone Clay",
   "item.tbs4content.coated_eye": "Clay Coated Eye of Ender",
   "item.tbs4content.ceramic_eye": "Ceramic Coated Eye of Ender",
-  "item.tbs4content.return_rod": "Return Rod",
   "item.tbs4content.raw_lead": "Raw Lead",
   "item.tbs4content.lead_ingot": "Lead Ingot",
+  "item.tbs4content.danite_crystal": "Danite Crystal",
+
   "item.tbs4content.iodine_tablets": "Iodine Tablets",
   "item.tbs4content.chemotherapy": "Chemotherapy",
-  "item.tbs4content.danite_crystal": "Danite Crystal",
+
+  "item.tbs4content.return_rod": "Return Rod",
 
   "item.tbs4content.compressed_iron": "Compressed Iron Block",
   "item.tbs4content.compressed_gold": "Compressed Gold Block",
@@ -20,10 +22,12 @@
   "item.tbs4content.compressed_redstone": "Compressed Redstone Block",
   "item.tbs4content.compressed_slime": "Compressed Slime Block",
   "item.tbs4content.compressed_copper": "Compressed Copper Block",
-  "item.tbs4content.lead_block": "Lead Block",
   "item.tbs4content.compressed_lead": "Compressed Lead Block",
-  "item.tbs4content.danite_block": "Danite Block",
   "item.tbs4content.compressed_danite": "Compressed Danite Block",
+
+  "item.tbs4content.danite_block": "Danite Block",
+  "item.tbs4content.lead_block": "Lead Block",
+
   "item.tbs4content.imbuer": "Imbuer",
   "item.tbs4content.compressor": "Compressor",
 
@@ -32,6 +36,7 @@
   "item.tbs4content.raw_lead_block": "Block of Raw Lead",
 
   "item.tbs4content.shaped_charge": "Shaped Charge",
+
   "item.tbs4content.lead_helmet": "Lead Helmet",
   "item.tbs4content.lead_chestplate": "Lead Chestplate",
   "item.tbs4content.lead_leggings": "Lead Leggings",
@@ -51,10 +56,12 @@
   "block.tbs4content.compressed_redstone": "Compressed Redstone Block",
   "block.tbs4content.compressed_slime": "Compressed Slime Block",
   "block.tbs4content.compressed_copper": "Compressed Copper Block",
-  "block.tbs4content.lead_block": "Lead Block",
   "block.tbs4content.compressed_lead": "Compressed Lead Block",
-  "block.tbs4content.danite_block": "Danite Block",
   "block.tbs4content.compressed_danite": "Compressed Danite Block",
+
+  "block.tbs4content.lead_block": "Lead Block",
+  "block.tbs4content.danite_block": "Danite Block",
+
   "block.tbs4content.imbuer": "Imbuer",
   "block.tbs4content.compressor": "Compressor",
 
@@ -73,5 +80,6 @@
 
   "itemGroup.tbs4content.tbs4content_group": "TBS4Content",
   "itemGroup.tbs4content.tbs4content_compressed_blocks_group": "TBS4Content Compressed Blocks",
-  "itemGroup.tbs4content.tbs4content_magic_group": "TBS4Content Magic"
+  "itemGroup.tbs4content.tbs4content_magic_group": "TBS4Content Magic",
+  "itemGroup.tbs4content.tbs4content_combat_group": "TBS4Content Combat"
 }

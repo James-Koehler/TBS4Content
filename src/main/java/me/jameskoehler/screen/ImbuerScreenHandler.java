@@ -33,10 +33,10 @@ public class ImbuerScreenHandler extends ScreenHandler {
 
         this.propertyDelegate = delegate;
 
-        this.addSlot(new Slot(inv, 0, 12, 10)); // input 1
-        this.addSlot(new Slot(inv, 1, 12, 20)); // input 2
-        this.addSlot(new Slot(inv, 2, 86, 60)); // fuel
-        this.addSlot(new Slot(inv, 3, 86, 60)); // finished product
+        this.addSlot(new Slot(inv, 0, 79, 18)); // input 1
+        this.addSlot(new Slot(inv, 1, 79, 54)); // input 2
+        this.addSlot(new Slot(inv, 2, 53, 39)); // fuel
+        this.addSlot(new Slot(inv, 3, 126, 54)); // finished product
 
         addPlayerInventory(playerInv);
         addPlayerHotbar(playerInv);

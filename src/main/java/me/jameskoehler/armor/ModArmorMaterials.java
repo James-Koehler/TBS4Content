@@ -31,6 +31,20 @@ public class ModArmorMaterials {
             0.0F,
             false);
 
+    public static final RegistryEntry<ArmorMaterial> DANITE = registerMaterial("danite",
+            Map.of(
+                    ArmorItem.Type.HELMET, 2,
+                    ArmorItem.Type.CHESTPLATE, 4,
+                    ArmorItem.Type.LEGGINGS, 3,
+                    ArmorItem.Type.BOOTS, 2
+            ),
+            5,
+            SoundEvents.ITEM_ARMOR_EQUIP_GOLD,
+            () -> Ingredient.ofItems(TBS4Content.DANITE_CRYSTAL),
+            0.0f,
+            0.0f,
+            false);
+
     public static RegistryEntry<ArmorMaterial> registerMaterial(String id, Map<ArmorItem.Type, Integer> defensePoints, int enchantability, RegistryEntry<SoundEvent> equipSound, Supplier<Ingredient> repairIngredientSupplier, float toughness, float knockbackResistance, boolean dyeable) {
         // Get the supported layers for the armor material
         List<ArmorMaterial.Layer> layers = List.of(
@@ -48,4 +62,6 @@ public class ModArmorMaterials {
         // The majority of the time, you'll want the RegistryEntry of the material - especially for the ArmorItem constructor.
         return RegistryEntry.of(material);
     }
+
+    public static void initialize() {};
 }

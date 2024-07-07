@@ -1,5 +1,6 @@
 package me.jameskoehler;
 
+import me.jameskoehler.armor.LeadArmorItem;
 import me.jameskoehler.armor.ModArmorMaterials;
 import me.jameskoehler.blocks.ModBlocks;
 import me.jameskoehler.blocks.customBlocks.blockEntities.CompressorBlockEntity;
@@ -57,6 +58,16 @@ public class TBS4Content implements ModInitializer {
 	public static final Chemotherapy CHEMOTHERAPY = Registry.register(Registries.ITEM, Identifier.of(modID, "chemotherapy"), new Chemotherapy(new Item.Settings()));
 
 	public static final Item DANITE_CRYSTAL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_crystal"), new Item(new Item.Settings()));
+
+	public static final LeadArmorItem LEAD_HELMET = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_helmet"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1)));
+	public static final LeadArmorItem LEAD_CHESTPLATE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_chestplate"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1)));
+	public static final LeadArmorItem LEAD_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_leggings"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1)));
+	public static final LeadArmorItem LEAD_BOOTS = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_boots"), new LeadArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1)));
+
+	public static final Item DANITE_HELMET = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_helmet"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.HELMET, new Item.Settings().maxCount(1)));
+	public static final Item DANITE_CHESTPLATE = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_chestplate"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.CHESTPLATE, new Item.Settings().maxCount(1)));
+	public static final Item DANITE_LEGGINGS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_leggings"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.LEGGINGS, new Item.Settings().maxCount(1)));
+	public static final Item DANITE_BOOTS = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_boots"), new ArmorItem(ModArmorMaterials.DANITE, ArmorItem.Type.BOOTS, new Item.Settings().maxCount(1)));
 
 
 	// Blocks
@@ -130,6 +141,15 @@ public class TBS4Content implements ModInitializer {
 				entries.add(RAW_LEAD_BLOCK);
 
 				entries.add(SHAPED_CHARGE);
+
+				entries.add(LEAD_HELMET);
+				entries.add(LEAD_CHESTPLATE);
+				entries.add(LEAD_LEGGINGS);
+				entries.add(LEAD_BOOTS);
+				entries.add(DANITE_HELMET);
+				entries.add(DANITE_CHESTPLATE);
+				entries.add(DANITE_LEGGINGS);
+				entries.add(DANITE_BOOTS);
 			}).build();
 
 	public static final ItemGroup TBS4CONTENT_COMPRESSED_BLOCKS_GROUP = FabricItemGroup.builder()
@@ -181,6 +201,7 @@ public class TBS4Content implements ModInitializer {
 
 		Registry.register(Registries.SCREEN_HANDLER, Identifier.of(modID, "imbuer_handler"), IMBUER_SCREEN_HANDLER);
 
+		ModArmorMaterials.initialize();
 		ModBlocks.initialize();
 	}
 }

@@ -32,6 +32,14 @@
   "item.tbs4content.raw_lead_block": "Block of Raw Lead",
 
   "item.tbs4content.shaped_charge": "Shaped Charge",
+  "item.tbs4content.lead_helmet": "Lead Helmet",
+  "item.tbs4content.lead_chestplate": "Lead Chestplate",
+  "item.tbs4content.lead_leggings": "Lead Leggings",
+  "item.tbs4content.lead_boots": "Lead Boots",
+  "item.tbs4content.danite_helmet": "Danite Helmet",
+  "item.tbs4content.danite_chestplate": "Danite Chestplate",
+  "item.tbs4content.danite_leggings": "Danite Leggings",
+  "item.tbs4content.danite_boots": "Danite Boots",
 
   "block.tbs4content.compressed_iron": "Compressed Iron Block",
   "block.tbs4content.compressed_gold": "Compressed Gold Block",

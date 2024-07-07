@@ -40,6 +40,9 @@ public class TBS4Content implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
     public static final Logger LOGGER = LoggerFactory.getLogger("tbs4content");
 	public static final String modID = "tbs4content";
+	public static Identifier ID(String path) {
+		return Identifier.of(modID, path);
+	}
 
 	// Status Effects
 	public static final Leukemia LEUKEMIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "leukemia"), new Leukemia());

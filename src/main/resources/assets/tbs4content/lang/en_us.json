@@ -67,6 +67,9 @@
   "effect.tbs4content.leukemia": "Leukemia",
   "effect.tbs4content.radiation_poisoning": "Radiation Poisoning",
 
+  "enchantment.tbs4content.radiation_resistance": "Radiation Resistance",
+  "enchantment.tbs4content.hollow_purple": "Hollow Purple",
+
 
   "itemGroup.tbs4content.tbs4content_group": "TBS4Content",
   "itemGroup.tbs4content.tbs4content_compressed_blocks_group": "TBS4Content Compressed Blocks",

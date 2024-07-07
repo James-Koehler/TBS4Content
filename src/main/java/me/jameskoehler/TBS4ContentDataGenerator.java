@@ -1,17 +1,29 @@
 package me.jameskoehler;
 
+import me.jameskoehler.enchantments.ConfigEnchantmentEnabledCondition;
+import me.jameskoehler.enchantments.EnchantmentIds;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
+import net.minecraft.block.Block;
+import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.damage.DamageType;
+import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.*;
+import net.minecraft.registry.tag.EnchantmentTags;
+import net.minecraft.registry.tag.ItemTags;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -19,6 +31,67 @@ import java.util.concurrent.CompletableFuture;
 import static me.jameskoehler.TBS4Content.*;
 
 public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
+
+	private static class TBS4EnchantmentGenerator extends FabricDynamicRegistryProvider {
+
+		public TBS4EnchantmentGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
+			super(output, completableFuture);
+		}
+
+		@Override
+		protected void configure(RegistryWrapper.WrapperLookup wrapperLookup, Entries entries) {
+			RegistryEntryLookup<DamageType> damageTypeLookup = wrapperLookup.getWrapperOrThrow(RegistryKeys.DAMAGE_TYPE);
+			RegistryEntryLookup<Enchantment> enchantmentLookup = wrapperLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
+			RegistryEntryLookup<Item> itemLookup = wrapperLookup.getWrapperOrThrow(RegistryKeys.ITEM);
+			RegistryEntryLookup<Block> blockLookup = wrapperLookup.getWrapperOrThrow(RegistryKeys.BLOCK);
+
+			register(
+					entries,
+					EnchantmentIds.HOLLOW_PURPLE,
+					Enchantment.builder(
+							Enchantment.definition(
+									itemLookup.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+									1,
+									3,
+									Enchantment.leveledCost(1,10),
+									Enchantment.leveledCost(16, 10),
+									2,
+									AttributeModifierSlot.ANY
+							)
+					).exclusiveSet(
+							enchantmentLookup.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE_SET)
+					)
+			);
+
+			register(
+					entries,
+					EnchantmentIds.RADIATION_RESISTANCE,
+					Enchantment.builder(
+							Enchantment.definition(
+									itemLookup.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
+									1,
+									3,
+									Enchantment.leveledCost(1, 10),
+									Enchantment.leveledCost(16, 10),
+									2,
+									AttributeModifierSlot.ARMOR
+							)
+					) //add effect logic https://github.com/chronosacaria/MCDungeonsWeapons/blob/092ad8852a12fc7e9747a1b0e5c06516e2b67ca2/src/main/java/dev/timefall/mcdw/data/McdwEnchantmentGenerator.java#L284
+			);
+		}
+
+		private void register(Entries entries, RegistryKey<Enchantment> key, Enchantment.Builder builder) {
+			register(entries, key, builder, new ConfigEnchantmentEnabledCondition(key.getValue()));
+		}
+		private void register(Entries entries, RegistryKey<Enchantment> key, Enchantment.Builder builder, ResourceCondition...resourceConditions) {
+			entries.add(key, builder.build(key.getValue()), resourceConditions);
+		}
+
+		@Override
+		public String getName() {
+			return "TBS4Content Enchantment Generation";
+		}
+	}
 
 	private static class TBS4RecipeGenerator extends FabricRecipeProvider{
 
@@ -177,6 +250,7 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 
 		FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
+		pack.addProvider(TBS4EnchantmentGenerator::new);
 		pack.addProvider(TBS4RecipeGenerator::new);
 		pack.addProvider(TBS4LootTables::new);
 	}

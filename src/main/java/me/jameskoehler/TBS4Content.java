@@ -16,6 +16,7 @@ import me.jameskoehler.potioneffects.Leukemia;
 import me.jameskoehler.potioneffects.RadiationPoisoning;
 import me.jameskoehler.recipe.ModRecipes;
 import me.jameskoehler.screen.ModScreenHandlers;
+import me.jameskoehler.tools.LeadToolMaterial;
 import me.jameskoehler.tools.ReturnRod;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -24,6 +25,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
 import net.minecraft.item.*;
+import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -76,6 +78,11 @@ public class TBS4Content implements ModInitializer {
 
 	// Tools
 	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "return_rod"), new ReturnRod(new Item.Settings().maxCount(1)));
+	public static final Item LEAD_SWORD = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_sword"), new SwordItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 3, -2.4f))));
+	public static final Item LEAD_PICKAXE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_pickaxe"), new PickaxeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 1, -2.8f))));
+	public static final Item LEAD_AXE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_axe"), new AxeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 6, -3.1f))));
+	public static final Item LEAD_SHOVEL = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_shovel"), new ShovelItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 1.5f, -3.0f))));
+	public static final Item LEAD_HOE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_hoe"), new HoeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, -2.0f, -1.0f))));
 
 	// Blocks
 	public static final Block DANITE_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(5.0f, 5.0f)), "danite_block", true);
@@ -124,6 +131,11 @@ public class TBS4Content implements ModInitializer {
 
 				entries.add(DANITE_CRYSTAL);
 				entries.add(LEAD_INGOT);
+				entries.add(LEAD_SWORD);
+				entries.add(LEAD_PICKAXE);
+				entries.add(LEAD_AXE);
+				entries.add(LEAD_SHOVEL);
+				entries.add(LEAD_HOE);
 
 				entries.add(LEAD_BLOCK);
 				entries.add(DANITE_BLOCK);

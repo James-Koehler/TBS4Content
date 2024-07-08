@@ -1,0 +1,19 @@
+{
+  "type": "tbs4content:imbuer",
+  "cookingtime": 400,
+  "experience": 10,
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:iron_ore"
+    },
+    {
+      "item": "minecraft:blaze_rod"
+    }
+  ],
+  "result": {
+    "id": "minecraft:iron_block"
+  }
+}

@@ -14,6 +14,7 @@ import me.jameskoehler.items.Chemotherapy;
 import me.jameskoehler.items.IodineTablets;
 import me.jameskoehler.potioneffects.Leukemia;
 import me.jameskoehler.potioneffects.RadiationPoisoning;
+import me.jameskoehler.recipe.ModRecipes;
 import me.jameskoehler.screen.ModScreenHandlers;
 import me.jameskoehler.tools.ReturnRod;
 import net.fabricmc.api.ModInitializer;
@@ -226,6 +227,7 @@ public class TBS4Content implements ModInitializer {
 
 		Registry.register(Registries.SCREEN_HANDLER, Identifier.of(modID, "imbuer_handler"), IMBUER_SCREEN_HANDLER);
 
+		ModRecipes.registerRecipes();
 		ModArmorMaterials.initialize();
 		ModBlocks.initialize();
 	}

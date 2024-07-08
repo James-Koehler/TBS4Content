@@ -2,7 +2,6 @@ package me.jameskoehler.enchantments;
 
 import me.jameskoehler.TBS4Content;
 import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;

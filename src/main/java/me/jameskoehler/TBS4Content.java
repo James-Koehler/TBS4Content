@@ -85,31 +85,31 @@ public class TBS4Content implements ModInitializer {
 	public static final Item LEAD_HOE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_hoe"), new HoeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, -2.0f, -1.0f))));
 
 	// Blocks
-	public static final Block DANITE_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(5.0f, 5.0f)), "danite_block", true);
-	public static final Block LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(10.0f, 10.0f)), "lead_block", true);
+	public static final Block DANITE_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(5.0f, 5.0f).requiresTool()), "danite_block", true);
+	public static final Block LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(10.0f, 10.0f).requiresTool()), "lead_block", true);
 
-	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_iron", true);
-	public static final Block COMPRESSED_COPPER = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_copper", true);
-	public static final Block COMPRESSED_GOLD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_gold", true);
-	public static final Block COMPRESSED_NETHERITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(70.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_netherite", true);
-	public static final Block COMPRESSED_DIAMOND = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_diamond", true);
-	public static final Block COMPRESSED_EMERALD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_emerald", true);
-	public static final Block COMPRESSED_AMETHYST = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_amethyst", true);
-	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_quartz", true);
-	public static final CompressedRedstoneBlock COMPRESSED_REDSTONE = (CompressedRedstoneBlock) ModBlocks.register(new CompressedRedstoneBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_redstone", true);
+	public static final Block COMPRESSED_IRON = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_iron", true);
+	public static final Block COMPRESSED_COPPER = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_copper", true);
+	public static final Block COMPRESSED_GOLD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_gold", true);
+	public static final Block COMPRESSED_NETHERITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(70.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_netherite", true);
+	public static final Block COMPRESSED_DIAMOND = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_diamond", true);
+	public static final Block COMPRESSED_EMERALD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(65.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_emerald", true);
+	public static final Block COMPRESSED_AMETHYST = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_BLOCK).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_amethyst", true);
+	public static final Block COMPRESSED_QUARTZ = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_quartz", true);
+	public static final CompressedRedstoneBlock COMPRESSED_REDSTONE = (CompressedRedstoneBlock) ModBlocks.register(new CompressedRedstoneBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(45.0f, 1200.0f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_redstone", true);
 	public static final CompressedSlimeBlock COMPRESSED_SLIME = (CompressedSlimeBlock) ModBlocks.register(new CompressedSlimeBlock(AbstractBlock.Settings.create().sounds(BlockSoundGroup.SLIME).breakInstantly()), "compressed_slime", true);
-	public static final Block COMPRESSED_LEAD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 60.f).pistonBehavior(PistonBehavior.BLOCK)), "compressed_lead", true);
-	public static final Block COMPRESSED_DANITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.BLOCK)), "compressed_danite", true);
+	public static final Block COMPRESSED_LEAD = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(60.0f, 60.f).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_lead", true);
+	public static final Block COMPRESSED_DANITE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).pistonBehavior(PistonBehavior.BLOCK).requiresTool()), "compressed_danite", true);
 
 	public static final Block SHAPED_CHARGE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.WOOL).breakInstantly()), "shaped_charge", true);
 
-	public static final Imbuer IMBUER = (Imbuer) ModBlocks.register(new Imbuer(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(15.0f, 250.0f)), "imbuer", true);
-	public static final Compressor COMPRESSOR = (Compressor) ModBlocks.register(new Compressor(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(20.0f, 250.0f)), "compressor", true);
+	public static final Imbuer IMBUER = (Imbuer) ModBlocks.register(new Imbuer(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(15.0f, 250.0f).requiresTool()), "imbuer", true);
+	public static final Compressor COMPRESSOR = (Compressor) ModBlocks.register(new Compressor(AbstractBlock.Settings.create().sounds(BlockSoundGroup.METAL).strength(20.0f, 250.0f).requiresTool()), "compressor", true);
 
 	// Ores
-	public static final Block LEAD_ORE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f)), "lead_ore", true);
-	public static final Block DEEPSLATE_LEAD_ORE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(6.0f, 6.0f)), "deepslate_lead_ore", true);
-	public static final Block RAW_LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f)), "raw_lead_block", true);
+	public static final Block LEAD_ORE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f).requiresTool()), "lead_ore", true);
+	public static final Block DEEPSLATE_LEAD_ORE = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(6.0f, 6.0f).requiresTool()), "deepslate_lead_ore", true);
+	public static final Block RAW_LEAD_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(3.0f, 3.0f).requiresTool()), "raw_lead_block", true);
 
 	// Block Entities
 	public static final BlockEntityType<ImbuerBlockEntity> IMBUER_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(modID, "imbuer_block_entity"), BlockEntityType.Builder.create(ImbuerBlockEntity::new, IMBUER).build());

@@ -1,0 +1,24 @@
+{
+  "replace": false,
+  "values": [
+    "tbs4content:compressed_iron",
+    "tbs4content:compressed_copper",
+    "tbs4content:compressed_gold",
+    "tbs4content:compressed_netherite",
+    "tbs4content:compressed_diamond",
+    "tbs4content:compressed_emerald",
+    "tbs4content:compressed_amethyst",
+    "tbs4content:compressed_quartz",
+    "tbs4content:compressed_redstone",
+    "tbs4content:compressed_slime",
+    "tbs4content:compressed_lead",
+    "tbs4content:compressed_danite",
+    "tbs4content:danite_block",
+    "tbs4content:lead_block",
+    "tbs4content:imbuer",
+    "tbs4content:compressor",
+    "tbs4content:lead_ore",
+    "tbs4content:deepslate_lead_ore",
+    "tbs4content:raw_lead_block"
+  ]
+}

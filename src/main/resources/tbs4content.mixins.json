@@ -6,6 +6,7 @@
     "LivingEntityMixin",
     "MilkBucketMixin",
     "MinecartSpeedMixin",
+    "ModEntityDataSaverMixin",
     "Prop",
     "RedstoneUpdate",
     "RedstoneViewTest"

@@ -11,6 +11,7 @@ import me.jameskoehler.blocks.customBlocks.CompressedRedstoneBlock;
 import me.jameskoehler.blocks.customBlocks.CompressedSlimeBlock;
 import me.jameskoehler.blocks.customBlocks.Compressor;
 import me.jameskoehler.blocks.customBlocks.Imbuer;
+import me.jameskoehler.event.PlayerTickHandler;
 import me.jameskoehler.items.Chemotherapy;
 import me.jameskoehler.items.IodineTablets;
 import me.jameskoehler.potioneffects.Leukemia;
@@ -253,5 +254,7 @@ public class TBS4Content implements ModInitializer {
 		ModRecipes.registerRecipes();
 		ModArmorMaterials.initialize();
 		ModBlocks.initialize();
+
+		ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
 	}
 }

@@ -4,6 +4,7 @@ import me.jameskoehler.damagetypes.ModDamageTypes;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.nbt.NbtCompound;
 
 public class RadiationPoisoning extends StatusEffect {
 
@@ -13,8 +14,7 @@ public class RadiationPoisoning extends StatusEffect {
 
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
-        int i = 25 >> amplifier;
-        return i > 0 ? duration % i == 0 : true;
+        return duration % 100 == 0;
     }
 
     // functionality

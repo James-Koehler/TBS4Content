@@ -35,11 +35,11 @@ public class LivingEntityMixin {
         }
         // This works for keeping Leukemia and Radiation Poisoning from being removed by milk, but also by effect clear I do not think this is the correct way to implement this behaviour...
         // but as it stands these mixin files are from a Thread on the fabric Discord that has not been completed and was started Yesterday (7/5/24) I will keep my eye on it to see what conclusion they come to
-        if (effect.getEffectType().value().equals(TBS4Content.LEUKEMIA)) {
+        if (effect.getEffectType().value().equals(TBS4Content.LEUKEMIA.value()) && instance.isHolding(Items.MILK_BUCKET)) {
             shouldClearNextEffect = false;
             return false;
         }
-        if (effect.getEffectType().value().equals(TBS4Content.RADIATION_POISONING)) {
+        if (effect.getEffectType().value().equals(TBS4Content.RADIATION_POISONING.value()) && instance.isHolding(Items.MILK_BUCKET)) {
             shouldClearNextEffect = false;
             return false;
         }

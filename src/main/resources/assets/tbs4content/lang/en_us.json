@@ -87,5 +87,7 @@
   "itemGroup.tbs4content.tbs4content_group": "TBS4Content",
   "itemGroup.tbs4content.tbs4content_compressed_blocks_group": "TBS4Content Compressed Blocks",
   "itemGroup.tbs4content.tbs4content_magic_group": "TBS4Content Magic",
-  "itemGroup.tbs4content.tbs4content_combat_group": "TBS4Content Combat"
+  "itemGroup.tbs4content.tbs4content_combat_group": "TBS4Content Combat",
+
+  "death.attack.radiation_poison_damage_type" : "%1$s died from radiation poisoning!"
 }

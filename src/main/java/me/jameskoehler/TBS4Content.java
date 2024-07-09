@@ -4,6 +4,7 @@ import me.jameskoehler.armor.DaniteArmorItem;
 import me.jameskoehler.armor.LeadArmorItem;
 import me.jameskoehler.armor.ModArmorMaterials;
 import me.jameskoehler.blocks.ModBlocks;
+import me.jameskoehler.blocks.customBlocks.blockEntities.CompressedRedstoneBlockEntity;
 import me.jameskoehler.blocks.customBlocks.blockEntities.CompressorBlockEntity;
 import me.jameskoehler.blocks.customBlocks.blockEntities.ImbuerBlockEntity;
 import me.jameskoehler.blocks.customBlocks.CompressedRedstoneBlock;
@@ -19,19 +20,28 @@ import me.jameskoehler.screen.ModScreenHandlers;
 import me.jameskoehler.tools.LeadToolMaterial;
 import me.jameskoehler.tools.ReturnRod;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
+import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.piston.PistonBehavior;
+import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageSources;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.item.*;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
+import net.minecraft.util.logging.LogFileCompressor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,8 +58,8 @@ public class TBS4Content implements ModInitializer {
 	}
 
 	// Status Effects
-	public static final Leukemia LEUKEMIA = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "leukemia"), new Leukemia());
-	public static final RadiationPoisoning RADIATION_POISONING = Registry.register(Registries.STATUS_EFFECT, Identifier.of(modID, "radiation_poisoning"), new RadiationPoisoning());
+	public static final RegistryEntry<StatusEffect> LEUKEMIA = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(modID, "leukemia"), new Leukemia());
+	public static final RegistryEntry<StatusEffect> RADIATION_POISONING = Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(modID, "radiation_poisoning"), new RadiationPoisoning());
 
 	// Materials
 	public static final Item END_STONE_DUST = Registry.register(Registries.ITEM, Identifier.of(modID, "end_stone_dust"), new Item(new Item.Settings().maxCount(16)));
@@ -114,6 +124,7 @@ public class TBS4Content implements ModInitializer {
 	// Block Entities
 	public static final BlockEntityType<ImbuerBlockEntity> IMBUER_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(modID, "imbuer_block_entity"), BlockEntityType.Builder.create(ImbuerBlockEntity::new, IMBUER).build());
 	public static final BlockEntityType<CompressorBlockEntity> COMPRESOR_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(modID, "compressor_block_entity"), BlockEntityType.Builder.create(CompressorBlockEntity::new, COMPRESSOR).build());
+	public static final BlockEntityType<CompressedRedstoneBlockEntity> COMPRESSED_REDSTONE_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, Identifier.of(modID, "compressed_redstone_block_entity"), BlockEntityType.Builder.create(CompressedRedstoneBlockEntity::new, COMPRESSED_REDSTONE).build());
 
 
 	// Item Groups

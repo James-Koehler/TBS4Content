@@ -1,14 +1,13 @@
 package me.jameskoehler.event;
 
-import me.jameskoehler.IEntityDataSaver;
-import me.jameskoehler.RadiationData;
+import me.jameskoehler.util.IEntityDataSaver;
+import me.jameskoehler.util.RadiationData;
 import me.jameskoehler.TBS4Content;
 import me.jameskoehler.damagetypes.ModDamageTypes;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 
 import java.util.Random;
 

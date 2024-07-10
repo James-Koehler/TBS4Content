@@ -1,7 +1,7 @@
 package me.jameskoehler.items;
 
-import me.jameskoehler.IEntityDataSaver;
-import me.jameskoehler.RadiationData;
+import me.jameskoehler.util.IEntityDataSaver;
+import me.jameskoehler.util.RadiationData;
 import me.jameskoehler.TBS4Content;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

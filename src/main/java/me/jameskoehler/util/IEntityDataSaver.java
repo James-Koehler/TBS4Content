@@ -1,4 +1,4 @@
-package me.jameskoehler;
+package me.jameskoehler.util;
 
 import net.minecraft.nbt.NbtCompound;
 

@@ -1,17 +1,13 @@
 package me.jameskoehler.mixin;
 
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
-import me.jameskoehler.IGettableMilkingPlayers;
+import me.jameskoehler.util.IGettableMilkingPlayers;
 import me.jameskoehler.TBS4Content;
 import me.jameskoehler.event.EffectClearCallback;
-import me.jameskoehler.potioneffects.Leukemia;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.ActionResult;
-import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.*;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

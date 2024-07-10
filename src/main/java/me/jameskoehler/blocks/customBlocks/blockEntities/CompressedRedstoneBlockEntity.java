@@ -1,24 +1,15 @@
 package me.jameskoehler.blocks.customBlocks.blockEntities;
 
-import me.jameskoehler.IEntityDataSaver;
-import me.jameskoehler.RadiationData;
+import me.jameskoehler.util.IEntityDataSaver;
+import me.jameskoehler.util.RadiationData;
 import me.jameskoehler.TBS4Content;
-import me.jameskoehler.potioneffects.RadiationPoisoning;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffectUtil;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.network.packet.s2c.play.GameStateChangeS2CPacket;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
-import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -34,7 +25,6 @@ public class CompressedRedstoneBlockEntity extends BlockEntity {
 
     public static void tick(World world, BlockPos blockPos, BlockState state, CompressedRedstoneBlockEntity entity) {
         if (world.isClient()) {
-
             return;
         }
         double range = 20.0;
@@ -44,12 +34,31 @@ public class CompressedRedstoneBlockEntity extends BlockEntity {
                 player -> origin.isInRange(player.getPos(), range) &&
                         player.interactionManager.isSurvivalLike()
         );
-        // need to figure out a way to slow this down, currently reaches 1000 very quickly
-        list.forEach(player -> RadiationData.addExposure((IEntityDataSaver) player, 1));
-        for(PlayerEntity player : list) {
+        float exposureAmt = 1.0f;
+
+        for (PlayerEntity player : list) {
+            List<ItemStack> armor = player.getInventory().armor;
+
+            ItemStack boots = armor.get(0);
+            ItemStack leggings = armor.get(1);
+            ItemStack chestplate = armor.get(2);
+            ItemStack helmet = armor.get(3);
+
+            if (helmet.isOf(TBS4Content.LEAD_HELMET)) {
+                exposureAmt = exposureAmt/25;
+                if (chestplate.isOf(TBS4Content.LEAD_CHESTPLATE)) {
+                    exposureAmt = exposureAmt/25;
+                    if (leggings.isOf(TBS4Content.LEAD_LEGGINGS)) {
+                        exposureAmt = exposureAmt/25;
+                        if (boots.isOf(TBS4Content.LEAD_BOOTS)) {
+                            exposureAmt = 0;
+                        }
+                    }
+                }
+            }
+            RadiationData.addExposure((IEntityDataSaver) player, exposureAmt);
             int exposure = ((IEntityDataSaver) player).getPersistentData().getInt("exposure");
             int duration = (30 + (10 * (exposure - 1000) / 50)) * 20;
-            RadiationData.addExposure((IEntityDataSaver) player, 200);
             if (exposure >= 1000) {
                 player.addStatusEffect(new StatusEffectInstance(TBS4Content.RADIATION_POISONING, duration, 0, false, false));
             }

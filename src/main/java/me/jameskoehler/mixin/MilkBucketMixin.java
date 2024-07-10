@@ -1,6 +1,6 @@
 package me.jameskoehler.mixin;
 
-import me.jameskoehler.IGettableMilkingPlayers;
+import me.jameskoehler.util.IGettableMilkingPlayers;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.MilkBucketItem;

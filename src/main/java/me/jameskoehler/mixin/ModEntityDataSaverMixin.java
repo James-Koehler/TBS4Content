@@ -1,6 +1,6 @@
 package me.jameskoehler.mixin;
 
-import me.jameskoehler.IEntityDataSaver;
+import me.jameskoehler.util.IEntityDataSaver;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NbtCompound;
 import org.spongepowered.asm.mixin.Mixin;

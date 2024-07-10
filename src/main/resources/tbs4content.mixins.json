@@ -7,6 +7,7 @@
     "MilkBucketMixin",
     "MinecartSpeedMixin",
     "ModEntityDataSaverMixin",
+    "PistonHandlerMixin",
     "Prop",
     "RedstoneUpdate",
     "RedstoneViewTest"

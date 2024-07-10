@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "tbs4content:radiation_poisoning"
+    "tbs4content:radiation_poisoning",
+    "tbs4content:leukemia"
   ]
 }

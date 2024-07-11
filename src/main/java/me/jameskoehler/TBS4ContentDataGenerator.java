@@ -11,15 +11,19 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.minecraft.block.Block;
+import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentLevelBasedValue;
+import net.minecraft.enchantment.effect.value.AddEnchantmentEffect;
 import net.minecraft.entity.damage.DamageType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.loot.condition.RandomChanceLootCondition;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.EnchantmentTags;
@@ -62,7 +66,7 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 							enchantmentLookup.getOrThrow(EnchantmentTags.DAMAGE_EXCLUSIVE_SET)
 					)
 			);
-
+			//add effect logic https://github.com/chronosacaria/MCDungeonsWeapons/blob/092ad8852a12fc7e9747a1b0e5c06516e2b67ca2/src/main/java/dev/timefall/mcdw/data/McdwEnchantmentGenerator.java#L284
 			register(
 					entries,
 					EnchantmentIds.RADIATION_RESISTANCE,
@@ -76,7 +80,10 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 									2,
 									AttributeModifierSlot.ARMOR
 							)
-					) //add effect logic https://github.com/chronosacaria/MCDungeonsWeapons/blob/092ad8852a12fc7e9747a1b0e5c06516e2b67ca2/src/main/java/dev/timefall/mcdw/data/McdwEnchantmentGenerator.java#L284
+					).addEffect(
+							EnchantmentEffectComponentTypes.ARMOR_EFFECTIVENESS,
+							new AddEnchantmentEffect(EnchantmentLevelBasedValue.linear(3f))
+					)
 			);
 		}
 

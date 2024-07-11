@@ -5,14 +5,14 @@ import me.jameskoehler.enchantments.EnchantmentIds;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.*;
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
 import net.minecraft.block.Block;
 import net.minecraft.component.EnchantmentEffectComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
+import net.minecraft.data.client.Models;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.RecipeProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
@@ -252,6 +252,60 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 		}
 	}
 
+	private static class TBS4ModelGenerator extends FabricModelProvider {
+
+		public TBS4ModelGenerator(FabricDataOutput output) {
+			super(output);
+		}
+
+		@Override
+		public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_IRON);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_GOLD);
+			blockStateModelGenerator.registerSimpleCubeAll(TBS4Content.COMPRESSED_COPPER);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_NETHERITE);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_DIAMOND);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_EMERALD);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_AMETHYST);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_QUARTZ);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_REDSTONE);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_LEAD);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_DANITE);
+
+			blockStateModelGenerator.registerSimpleCubeAll(DANITE_BLOCK);
+			blockStateModelGenerator.registerSimpleCubeAll(LEAD_BLOCK);
+
+			blockStateModelGenerator.registerSimpleCubeAll(LEAD_ORE);
+			blockStateModelGenerator.registerSimpleCubeAll(DEEPSLATE_LEAD_ORE);
+			blockStateModelGenerator.registerSimpleCubeAll(RAW_LEAD_BLOCK);
+			blockStateModelGenerator.registerSimpleCubeAll(COMPRESSED_SLIME);
+		}
+
+		@Override
+		public void generateItemModels(ItemModelGenerator itemModelGenerator) {
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_IRON), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_GOLD), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_COPPER), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_NETHERITE), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_DIAMOND), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_EMERALD), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_AMETHYST), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_QUARTZ), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_REDSTONE), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_LEAD), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_DANITE), Models.GENERATED);
+
+			itemModelGenerator.register(Item.fromBlock(DANITE_BLOCK), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(LEAD_BLOCK), Models.GENERATED);
+
+			itemModelGenerator.register(Item.fromBlock(LEAD_ORE), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(DEEPSLATE_LEAD_ORE), Models.GENERATED);
+			itemModelGenerator.register(Item.fromBlock(RAW_LEAD_BLOCK), Models.GENERATED);
+
+			itemModelGenerator.register(Item.fromBlock(COMPRESSED_SLIME), Models.GENERATED);
+		}
+	}
+
 	@Override
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 
@@ -260,5 +314,6 @@ public class TBS4ContentDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(TBS4EnchantmentGenerator::new);
 		pack.addProvider(TBS4RecipeGenerator::new);
 		pack.addProvider(TBS4LootTables::new);
+		pack.addProvider(TBS4ModelGenerator::new);
 	}
 }

@@ -51,31 +51,45 @@ public class CompressedRedstoneBlockEntity extends BlockEntity {
 
             List<ItemStack> armor = player.getInventory().armor;
 
-            ItemStack boots = armor.get(0);
-            ItemStack leggings = armor.get(1);
-            ItemStack chestplate = armor.get(2);
             ItemStack helmet = armor.get(3);
+            ItemStack chestplate = armor.get(2);
+            ItemStack leggings = armor.get(1);
+            ItemStack boots = armor.get(0);
+
+            int helmetLevel = EnchantmentHelper.getLevel(radiationResistance, helmet);
+            int chestplateLevel = EnchantmentHelper.getLevel(radiationResistance, chestplate);
+            int leggingsLevel = EnchantmentHelper.getLevel(radiationResistance, leggings);
+            int bootsLevel = EnchantmentHelper.getLevel(radiationResistance, boots);
+
             int counter = 0;
-            if (helmet.isOf(TBS4Content.LEAD_HELMET) || EnchantmentHelper.getLevel(radiationResistance, helmet) != 0) {
-                counter++;
+
+            if (helmetLevel == 3 || chestplateLevel == 3 || leggingsLevel == 3 || bootsLevel == 3) {
+                counter = 4;
             }
-            if (chestplate.isOf(TBS4Content.LEAD_CHESTPLATE) || EnchantmentHelper.getLevel(radiationResistance, chestplate) != 0) {
-                counter++;
+            if (helmet.isOf(TBS4Content.LEAD_HELMET) || helmetLevel == 1) {
+                counter+=1;
             }
-            if (leggings.isOf(TBS4Content.LEAD_LEGGINGS) || EnchantmentHelper.getLevel(radiationResistance, leggings) != 0) {
-                counter++;
+            if (chestplate.isOf(TBS4Content.LEAD_CHESTPLATE) || chestplateLevel == 1) {
+                counter+=1;
             }
-            if (boots.isOf(TBS4Content.LEAD_BOOTS) || EnchantmentHelper.getLevel(radiationResistance, boots) != 0) {
-                counter++;
+            if (leggings.isOf(TBS4Content.LEAD_LEGGINGS) || leggingsLevel == 1) {
+                counter+=1;
             }
-            exposureAmt = counter == 0 ? exposureAmt : counter == 4 ? 0 : exposureAmt / (25 * counter); // hehe gross nested ternary operators >:)
+            if (boots.isOf(TBS4Content.LEAD_BOOTS) || bootsLevel == 1) {
+                counter+=1;
+            }
+            if (counter != 0) {
+                exposureAmt = counter >= 4 ? 0 : exposureAmt / (25 * counter);
+            }
+
+            exposureAmt = counter == 0 ? exposureAmt : counter == 4 ? 0 : exposureAmt / (25 * counter);
             RadiationData.addExposure((IEntityDataSaver) player, exposureAmt);
-            int exposure = ((IEntityDataSaver) player).getPersistentData().getInt("exposure");
-            int duration = (30 + (10 * (exposure - 1000) / 50)) * 20;
+            float exposure = ((IEntityDataSaver) player).getPersistentData().getFloat("exposure");
+            int duration = Float.floatToIntBits((30 + (10 * (exposure - 1000) / 50)) * 20);
+
             if (exposure >= 1000) {
                 player.addStatusEffect(new StatusEffectInstance(TBS4Content.RADIATION_POISONING, duration, 0, false, false));
             }
-            player.sendMessage(Text.literal("Exposure gained: " + exposureAmt));
         }
     }
 }

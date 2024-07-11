@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tbs4content:item/endstonedust"
+    "layer0": "tbs4content:item/end_stone_dust"
   }
 }

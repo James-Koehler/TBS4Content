@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "tbs4content:item/endstoneclay"
+    "layer0": "tbs4content:item/coated_eye"
   }
 }

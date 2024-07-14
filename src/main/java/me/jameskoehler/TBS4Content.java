@@ -18,6 +18,7 @@ import me.jameskoehler.potioneffects.Leukemia;
 import me.jameskoehler.potioneffects.RadiationPoisoning;
 import me.jameskoehler.recipe.ModRecipes;
 import me.jameskoehler.screen.ModScreenHandlers;
+import me.jameskoehler.tools.DaniteToolMaterial;
 import me.jameskoehler.tools.LeadToolMaterial;
 import me.jameskoehler.tools.ReturnRod;
 import net.fabricmc.api.ModInitializer;
@@ -89,11 +90,18 @@ public class TBS4Content implements ModInitializer {
 
 	// Tools
 	public static final ReturnRod RETURN_ROD = Registry.register(Registries.ITEM, Identifier.of(modID, "return_rod"), new ReturnRod(new Item.Settings().maxCount(1)));
+
 	public static final Item LEAD_SWORD = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_sword"), new SwordItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 3, -2.4f))));
 	public static final Item LEAD_PICKAXE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_pickaxe"), new PickaxeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 1, -2.8f))));
 	public static final Item LEAD_AXE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_axe"), new AxeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 6, -3.1f))));
 	public static final Item LEAD_SHOVEL = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_shovel"), new ShovelItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 1.5f, -3.0f))));
-	public static final Item LEAD_HOE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_hoe"), new HoeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, -2.0f, -1.0f))));
+	public static final Item LEAD_HOE = Registry.register(Registries.ITEM, Identifier.of(modID, "lead_hoe"), new HoeItem(LeadToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(LeadToolMaterial.INSTANCE, 1, -3.5f))));
+
+	public static final Item DANITE_SWORD = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_sword"), new SwordItem(DaniteToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(DaniteToolMaterial.INSTANCE, 11, 1.6f))));
+	public static final Item DANITE_PICKAXE = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_pickaxe"), new PickaxeItem(DaniteToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(PickaxeItem.createAttributeModifiers(DaniteToolMaterial.INSTANCE, 7, -2.8f))));
+	public static final Item DANITE_AXE = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_axe"), new AxeItem(DaniteToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(AxeItem.createAttributeModifiers(DaniteToolMaterial.INSTANCE, 13, -3.1f))));
+	public static final Item DANITE_SHOVEL = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_shovel"), new ShovelItem(DaniteToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(DaniteToolMaterial.INSTANCE, 8f, 1.6f))));
+	public static final Item DANITE_HOE = Registry.register(Registries.ITEM, Identifier.of(modID, "danite_hoe"), new HoeItem(DaniteToolMaterial.INSTANCE, new Item.Settings().attributeModifiers(ShovelItem.createAttributeModifiers(DaniteToolMaterial.INSTANCE, 1, 0f))));
 
 	// Blocks
 	public static final Block DANITE_BLOCK = ModBlocks.register(new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.AMETHYST_CLUSTER).strength(5.0f, 5.0f).requiresTool()), "danite_block", true);
@@ -133,22 +141,19 @@ public class TBS4Content implements ModInitializer {
 			.icon(() -> new ItemStack(END_STONE_DUST))
 			.displayName(Text.translatable("itemGroup.tbs4content.tbs4content_group"))
 			.entries((context, entries) -> {
+
+				// Crafting materials
+				entries.add(RAW_LEAD);
+
 				entries.add(END_STONE_DUST);
 				entries.add(END_STONE_CLAY);
 				entries.add(COATED_EYE);
 				entries.add(CERAMIC_EYE);
-				entries.add(RETURN_ROD);
-
-				entries.add(RAW_LEAD);
 
 				entries.add(DANITE_CRYSTAL);
 				entries.add(LEAD_INGOT);
-				entries.add(LEAD_SWORD);
-				entries.add(LEAD_PICKAXE);
-				entries.add(LEAD_AXE);
-				entries.add(LEAD_SHOVEL);
-				entries.add(LEAD_HOE);
 
+				// Blocks that exist
 				entries.add(LEAD_BLOCK);
 				entries.add(DANITE_BLOCK);
 
@@ -165,19 +170,40 @@ public class TBS4Content implements ModInitializer {
 				entries.add(COMPRESSED_LEAD);
 				entries.add(COMPRESSED_DANITE);
 
-				entries.add(IMBUER);
-				entries.add(COMPRESSOR);
-
 				entries.add(LEAD_ORE);
 				entries.add(DEEPSLATE_LEAD_ORE);
 				entries.add(RAW_LEAD_BLOCK);
 
+				// Blocks that do stuff
+				entries.add(IMBUER);
+				entries.add(COMPRESSOR);
+
 				entries.add(SHAPED_CHARGE);
 
+				// Tools
+				entries.add(RETURN_ROD);
+
+				entries.add(LEAD_PICKAXE);
+				entries.add(LEAD_AXE);
+				entries.add(LEAD_SHOVEL);
+				entries.add(LEAD_HOE);
+
+				entries.add(DANITE_PICKAXE);
+				entries.add(DANITE_AXE);
+				entries.add(DANITE_SHOVEL);
+				entries.add(DANITE_HOE);
+
+				// Weapons
+				entries.add(LEAD_SWORD);
+
+				entries.add(DANITE_SWORD);
+
+				// Armor
 				entries.add(LEAD_HELMET);
 				entries.add(LEAD_CHESTPLATE);
 				entries.add(LEAD_LEGGINGS);
 				entries.add(LEAD_BOOTS);
+
 				entries.add(DANITE_HELMET);
 				entries.add(DANITE_CHESTPLATE);
 				entries.add(DANITE_LEGGINGS);
@@ -225,10 +251,16 @@ public class TBS4Content implements ModInitializer {
 				entries.add(DANITE_LEGGINGS);
 				entries.add(DANITE_BOOTS);
 
+				entries.add(DANITE_SWORD);
+				entries.add(DANITE_AXE);
+
 				entries.add(LEAD_HELMET);
 				entries.add(LEAD_CHESTPLATE);
 				entries.add(LEAD_LEGGINGS);
 				entries.add(LEAD_BOOTS);
+
+				entries.add(LEAD_SWORD);
+				entries.add(LEAD_AXE);
 
 				entries.add(SHAPED_CHARGE);
 			}).build();

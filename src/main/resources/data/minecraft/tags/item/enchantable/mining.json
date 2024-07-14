@@ -3,6 +3,11 @@
     "tbs4content:lead_pickaxe",
     "tbs4content:lead_axe",
     "tbs4content:lead_shovel",
-    "tbs4content:lead_hoe"
+    "tbs4content:lead_hoe",
+
+    "tbs4content:danite_pickaxe",
+    "tbs4ontent:danite_axe",
+    "tbs4content:danite_shovel",
+    "tbs4content:danite_hoe"
   ]
 }

@@ -41,6 +41,7 @@
   "item.tbs4content.lead_chestplate": "Lead Chestplate",
   "item.tbs4content.lead_leggings": "Lead Leggings",
   "item.tbs4content.lead_boots": "Lead Boots",
+
   "item.tbs4content.lead_sword": "Lead Sword",
   "item.tbs4content.lead_pickaxe": "Lead Pickaxe",
   "item.tbs4content.lead_axe": "Lead Axe",
@@ -51,6 +52,13 @@
   "item.tbs4content.danite_chestplate": "Danite Chestplate",
   "item.tbs4content.danite_leggings": "Danite Leggings",
   "item.tbs4content.danite_boots": "Danite Boots",
+
+  "item.tbs4content.danite_sword": "Danite Sword",
+  "item.tbs4content.danite_pickaxe": "Danite Pickaxe",
+  "item.tbs4content.danite_axe": "Danite Axe",
+  "item.tbs4content.danite_shovel": "Danite Shovel",
+  "item.tbs4content.danite_hoe": "Danite Hoe",
+
 
   "block.tbs4content.compressed_iron": "Compressed Iron Block",
   "block.tbs4content.compressed_gold": "Compressed Gold Block",
@@ -77,6 +85,7 @@
 
   "block.tbs4content.shaped_charge": "Shaped Charge",
 
+
   "effect.tbs4content.leukemia": "Leukemia",
   "effect.tbs4content.radiation_poisoning": "Radiation Poisoning",
 
@@ -89,6 +98,7 @@
   "itemGroup.tbs4content.tbs4content_magic_group": "TBS4Content Magic",
   "itemGroup.tbs4content.tbs4content_combat_group": "TBS4Content Combat",
 
+  
   "death.attack.radiation_poison_damage_type" : "%1$s died from radiation poisoning!",
   "death.attack.leukemia_damage_type": "%1$s died of Leukemia"
 }

@@ -1,0 +1,25 @@
+{
+  "values": [
+    "tbs4content:lead_pickaxe",
+    "tbs4content:lead_axe",
+    "tbs4content:lead_shovel",
+    "tbs4content:lead_hoe",
+    "tbs4content:lead_sword",
+
+    "tbs4content:lead_helmet",
+    "tbs4content:lead_chestplate",
+    "tbs4content:lead_leggings",
+    "tbs4content:lead_boots",
+
+    "tbs4content:danite_pickaxe",
+    "tbs4content:danite_axe",
+    "tbs4content:danite_shovel",
+    "tbs4content:danite_hoe",
+    "tbs4content:danite_sword",
+
+    "tbs4content:danite_helmet",
+    "tbs4content:danite_chestplate",
+    "tbs4content:danite_leggings",
+    "tbs4content:danite_boots"
+  ]
+}

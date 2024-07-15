@@ -3,6 +3,7 @@
   "package": "me.jameskoehler.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "EnderDragonDamageMixin",
     "LivingEntityMixin",
     "MilkBucketMixin",
     "MinecartSpeedMixin",
@@ -10,7 +11,8 @@
     "PistonHandlerMixin",
     "Prop",
     "RedstoneUpdate",
-    "RedstoneViewTest"
+    "RedstoneViewTest",
+    "WitherDamageMixin"
   ],
   "injectors": {
     "defaultRequire": 1

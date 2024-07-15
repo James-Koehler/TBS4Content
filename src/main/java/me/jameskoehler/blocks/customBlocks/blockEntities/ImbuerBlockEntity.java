@@ -28,7 +28,7 @@ public class ImbuerBlockEntity extends BlockEntity implements NamedScreenHandler
 
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     /*
-    Slot 1 - Danite
+    Slot 1 - Danite / Lead
     Slot 2 - Netherite tool / armor / whatever
     Slot 3 - Fuel
     Slot 4 - Output
